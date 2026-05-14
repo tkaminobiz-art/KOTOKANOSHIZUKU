@@ -9,6 +9,8 @@ GitHub repository for the initial landing page of `古都華の雫`.
 - Japanese top page at `/`.
 - English page at `/en/`.
 - AI-generated hero visual and placeholder product visual, both replaceable.
+- Cinematic opening sequence using the product package image.
+- Scroll progress and subtle product interaction effects.
 - Shopify or external EC links can be added later.
 
 ## Local Preview
