@@ -10,7 +10,10 @@ const productStage = document.querySelector(".product-stage");
 const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 const isMobileOpening = window.matchMedia("(max-width: 900px)").matches;
 const openingDuration = isMobileOpening ? 5600 : 8000;
+const mobileOpeningRevealLead = 360;
+const mobileOpeningExitDuration = 760;
 let openingTimer;
+let openingFinished = false;
 
 const syncOpeningDock = () => {
   if (!opening || !openingPackshot || !productStage) return;
@@ -39,14 +42,32 @@ const syncOpeningDock = () => {
 };
 
 const finishOpening = () => {
+  if (openingFinished) return;
+  openingFinished = true;
   if (openingTimer) {
     window.clearTimeout(openingTimer);
   }
+  if (!opening) {
+    openingMobileVideo?.pause();
+    document.body.classList.remove("is-opening");
+    document.body.classList.add("is-opening-complete");
+    return;
+  }
+
+  opening.classList.add("is-skipped");
+  if (isMobileOpening) {
+    window.setTimeout(() => {
+      openingMobileVideo?.pause();
+      document.body.classList.remove("is-opening");
+      document.body.classList.add("is-opening-complete");
+      opening.setAttribute("hidden", "");
+    }, mobileOpeningExitDuration);
+    return;
+  }
+
   openingMobileVideo?.pause();
   document.body.classList.remove("is-opening");
   document.body.classList.add("is-opening-complete");
-  if (!opening) return;
-  opening.classList.add("is-skipped");
   window.setTimeout(() => {
     opening.setAttribute("hidden", "");
   }, 620);
@@ -56,17 +77,39 @@ if (opening && !prefersReducedMotion) {
   syncOpeningDock();
   document.body.classList.add("is-opening");
 
+  const scheduleOpeningTimer = (delay) => {
+    if (openingTimer) {
+      window.clearTimeout(openingTimer);
+    }
+    openingTimer = window.setTimeout(finishOpening, delay);
+  };
+
   if (isMobileOpening && openingMobileVideo) {
+    const scheduleMobileVideoExit = () => {
+      const videoDuration = openingMobileVideo.duration * 1000;
+      if (Number.isFinite(videoDuration) && videoDuration > 0) {
+        scheduleOpeningTimer(Math.max(1200, videoDuration - mobileOpeningRevealLead));
+      }
+    };
+
     try {
       openingMobileVideo.currentTime = 0;
       openingMobileVideo.play()?.catch(() => {});
+      if (Number.isFinite(openingMobileVideo.duration) && openingMobileVideo.duration > 0) {
+        scheduleMobileVideoExit();
+      } else {
+        openingMobileVideo.addEventListener("loadedmetadata", scheduleMobileVideoExit, { once: true });
+        scheduleOpeningTimer(openingDuration);
+      }
       openingMobileVideo.addEventListener("ended", finishOpening, { once: true });
     } catch {
       // The timer below still guarantees the opening resolves if video playback is unavailable.
+      scheduleOpeningTimer(openingDuration);
     }
+  } else {
+    scheduleOpeningTimer(openingDuration);
   }
 
-  openingTimer = window.setTimeout(finishOpening, openingDuration);
   openingSkip?.addEventListener("click", () => {
     finishOpening();
   });
