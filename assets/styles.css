@@ -120,6 +120,10 @@ img {
   z-index: 8;
 }
 
+.opening-mobile-video {
+  display: none;
+}
+
 .opening-curtain {
   display: none;
 }
@@ -1574,12 +1578,23 @@ body.is-opening .right-topline {
     --opening-dock-x: 0;
     --opening-dock-y: -6vh;
     --opening-dock-scale: 0.72;
-    background: #fff8ef;
-    animation: mobile-opening-exit 560ms ease 5.45s forwards;
+    background: #070604;
+    animation: mobile-opening-exit 520ms ease 5.05s forwards;
   }
 
   body.is-opening .site-shell {
-    animation: mobile-site-under-opening 5.45s ease both;
+    animation: mobile-site-under-opening 5.05s ease both;
+  }
+
+  .opening-mobile-video {
+    position: absolute;
+    inset: 0;
+    z-index: 21;
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    background: #070604;
   }
 
   .site-shell {
@@ -1746,6 +1761,7 @@ body.is-opening .right-topline {
   }
 
   .opening-cinema::before {
+    display: none;
     inset: 0;
     background:
       linear-gradient(180deg, rgba(255, 249, 240, 0.08), rgba(255, 246, 239, 0.24) 46%, rgba(255, 246, 239, 0.9) 100%),
@@ -1756,6 +1772,7 @@ body.is-opening .right-topline {
   }
 
   .opening-cinema::after {
+    display: none;
     z-index: 4;
     background:
       radial-gradient(circle at 50% 43%, rgba(255, 252, 244, 0) 0 7rem, rgba(255, 245, 235, 0.48) 15rem, rgba(255, 247, 238, 0.84) 100%),
@@ -1766,6 +1783,7 @@ body.is-opening .right-topline {
   }
 
   .opening-grain {
+    display: none;
     background:
       radial-gradient(circle, rgba(255, 255, 255, 0.85) 0 1px, transparent 1.8px),
       radial-gradient(circle, rgba(218, 171, 93, 0.3) 0 1px, transparent 2px);
@@ -1775,6 +1793,7 @@ body.is-opening .right-topline {
   }
 
   .opening-stage {
+    display: none;
     width: 100vw;
     height: 100dvh;
     padding: 0 24px 18vh;
@@ -1830,6 +1849,7 @@ body.is-opening .right-topline {
   }
 
   .dock-flash {
+    display: none;
     top: 43%;
     width: min(74vw, 310px);
     animation: mobile-dock-flash 5.45s cubic-bezier(0.18, 0.82, 0.18, 1) forwards;
@@ -1850,6 +1870,7 @@ body.is-opening .right-topline {
   }
 
   .opening-copy {
+    display: none;
     left: 50%;
     right: auto;
     bottom: max(44px, 7.4vh);
@@ -1890,6 +1911,7 @@ body.is-opening .right-topline {
   .opening-skip {
     top: 14px;
     right: 14px;
+    z-index: 30;
     min-width: 66px;
     min-height: 34px;
     background: rgba(255, 248, 239, 0.42);

@@ -4,11 +4,13 @@ const scrollColumn = document.querySelector(".scroll-column");
 const opening = document.querySelector("[data-opening]");
 const openingSkip = document.querySelector("[data-opening-skip]");
 const openingPackshot = document.querySelector(".opening-packshot");
+const openingMobileVideo = document.querySelector(".opening-mobile-video");
 const progressBar = document.querySelector(".scroll-progress span");
 const productStage = document.querySelector(".product-stage");
 const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 const isMobileOpening = window.matchMedia("(max-width: 900px)").matches;
-const openingDuration = isMobileOpening ? 5900 : 8000;
+const openingDuration = isMobileOpening ? 5600 : 8000;
+let openingTimer;
 
 const syncOpeningDock = () => {
   if (!opening || !openingPackshot || !productStage) return;
@@ -37,6 +39,10 @@ const syncOpeningDock = () => {
 };
 
 const finishOpening = () => {
+  if (openingTimer) {
+    window.clearTimeout(openingTimer);
+  }
+  openingMobileVideo?.pause();
   document.body.classList.remove("is-opening");
   document.body.classList.add("is-opening-complete");
   if (!opening) return;
@@ -49,9 +55,19 @@ const finishOpening = () => {
 if (opening && !prefersReducedMotion) {
   syncOpeningDock();
   document.body.classList.add("is-opening");
-  const openingTimer = window.setTimeout(finishOpening, openingDuration);
+
+  if (isMobileOpening && openingMobileVideo) {
+    try {
+      openingMobileVideo.currentTime = 0;
+      openingMobileVideo.play()?.catch(() => {});
+      openingMobileVideo.addEventListener("ended", finishOpening, { once: true });
+    } catch {
+      // The timer below still guarantees the opening resolves if video playback is unavailable.
+    }
+  }
+
+  openingTimer = window.setTimeout(finishOpening, openingDuration);
   openingSkip?.addEventListener("click", () => {
-    window.clearTimeout(openingTimer);
     finishOpening();
   });
 } else {
