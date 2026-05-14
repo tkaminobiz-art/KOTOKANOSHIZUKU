@@ -7,6 +7,8 @@ const openingPackshot = document.querySelector(".opening-packshot");
 const progressBar = document.querySelector(".scroll-progress span");
 const productStage = document.querySelector(".product-stage");
 const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+const isMobileOpening = window.matchMedia("(max-width: 900px)").matches;
+const openingDuration = isMobileOpening ? 5900 : 8000;
 
 const syncOpeningDock = () => {
   if (!opening || !openingPackshot || !productStage) return;
@@ -47,7 +49,7 @@ const finishOpening = () => {
 if (opening && !prefersReducedMotion) {
   syncOpeningDock();
   document.body.classList.add("is-opening");
-  const openingTimer = window.setTimeout(finishOpening, 8000);
+  const openingTimer = window.setTimeout(finishOpening, openingDuration);
   openingSkip?.addEventListener("click", () => {
     window.clearTimeout(openingTimer);
     finishOpening();
