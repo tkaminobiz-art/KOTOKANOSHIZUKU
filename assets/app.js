@@ -18,7 +18,7 @@ const finishOpening = () => {
 
 if (opening && !prefersReducedMotion) {
   document.body.classList.add("is-opening");
-  const openingTimer = window.setTimeout(finishOpening, 5400);
+  const openingTimer = window.setTimeout(finishOpening, 7600);
   openingSkip?.addEventListener("click", () => {
     window.clearTimeout(openingTimer);
     finishOpening();

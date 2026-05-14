@@ -9,7 +9,7 @@ GitHub repository for the initial landing page of `古都華の雫`.
 - Japanese top page at `/`.
 - English page at `/en/`.
 - AI-generated hero visual and placeholder product visual, both replaceable.
-- Cinematic opening sequence using the product package image.
+- Cinematic opening sequence using generated full-screen desktop/mobile backdrops and the product package image.
 - Scroll progress and subtle product interaction effects.
 - Shopify or external EC links can be added later.
 
@@ -28,6 +28,8 @@ Open `http://localhost:8081/`.
 - `assets/styles.css`: Layout, responsive behavior, animations.
 - `assets/app.js`: Section reveal and chapter navigation state.
 - `assets/images/hero-kotoka-japan.png`: AI-generated hero visual.
+- `assets/images/opening-bg-desktop.png`: AI-generated desktop/tablet opening backdrop.
+- `assets/images/opening-bg-mobile.png`: AI-generated mobile opening backdrop.
 - `assets/images/product-jar-placeholder.png`: Temporary product visual.
 
 ## Replacement Notes
