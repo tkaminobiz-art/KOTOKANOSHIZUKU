@@ -1,0 +1,609 @@
+:root {
+  color-scheme: dark;
+  --black: #070604;
+  --ink: #11100d;
+  --paper: #f6efe0;
+  --muted: rgba(246, 239, 224, 0.66);
+  --soft: rgba(246, 239, 224, 0.82);
+  --gold: #c8a35b;
+  --gold-bright: #ead19a;
+  --red: #9c1725;
+  --red-deep: #4d0711;
+  --line: rgba(200, 163, 91, 0.28);
+  --shadow: 0 28px 90px rgba(0, 0, 0, 0.42);
+  --serif-ja: "Yu Mincho", "Hiragino Mincho ProN", "YuMincho", "Noto Serif JP", serif;
+  --serif-en: Georgia, "Times New Roman", serif;
+  --sans: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Yu Gothic", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background: var(--black);
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background: var(--black);
+  color: var(--paper);
+  font-family: var(--serif-ja);
+  letter-spacing: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+.site-shell {
+  display: grid;
+  grid-template-columns: minmax(280px, 28vw) minmax(520px, 44vw) minmax(280px, 28vw);
+  height: 100dvh;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(144, 20, 30, 0.18), transparent 34rem),
+    var(--black);
+}
+
+.side-panel {
+  position: relative;
+  min-height: 100dvh;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.side-panel::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-inline: 1px solid var(--line);
+  pointer-events: none;
+  z-index: 5;
+}
+
+.side-visual {
+  position: absolute;
+  inset: 0;
+  background-position: center;
+  background-size: cover;
+  transform: scale(1.04);
+  filter: saturate(0.9) contrast(1.06);
+}
+
+.side-visual-japan {
+  background-image:
+    linear-gradient(180deg, rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0.7)),
+    url("./images/hero-kotoka-japan.png");
+}
+
+.side-shade {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(0, 0, 0, 0.86), rgba(0, 0, 0, 0.32)),
+    radial-gradient(circle at 74% 18%, rgba(205, 158, 73, 0.14), transparent 18rem);
+  z-index: 1;
+}
+
+.left-rail {
+  position: absolute;
+  inset: 34px auto 38px 34px;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.rail-kicker,
+.eyebrow {
+  margin: 0;
+  color: var(--gold-bright);
+  font-family: var(--serif-en);
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.vertical-copy {
+  margin: 0;
+  writing-mode: vertical-rl;
+  color: rgba(246, 239, 224, 0.9);
+  font-size: clamp(1.3rem, 1.7vw, 1.9rem);
+  line-height: 1.85;
+  text-shadow: 0 14px 36px rgba(0, 0, 0, 0.9);
+}
+
+.chapter-nav {
+  position: absolute;
+  right: 24px;
+  bottom: 34px;
+  z-index: 4;
+  display: grid;
+  gap: 16px;
+}
+
+.chapter-nav a {
+  width: 38px;
+  height: 38px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(200, 163, 91, 0.2);
+  color: rgba(246, 239, 224, 0.55);
+  font-family: var(--serif-en);
+  font-size: 0.76rem;
+  transition: border-color 240ms ease, color 240ms ease, background 240ms ease;
+}
+
+.chapter-nav a.is-active {
+  border-color: rgba(234, 209, 154, 0.9);
+  color: var(--gold-bright);
+  background: rgba(200, 163, 91, 0.1);
+}
+
+.scroll-column {
+  height: 100dvh;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scroll-snap-type: y proximity;
+  background:
+    linear-gradient(rgba(7, 6, 4, 0.72), rgba(7, 6, 4, 0.9)),
+    url("./images/dark-washi-bg.png") center / cover;
+}
+
+.scroll-column::-webkit-scrollbar {
+  width: 8px;
+}
+
+.scroll-column::-webkit-scrollbar-track {
+  background: rgba(246, 239, 224, 0.03);
+}
+
+.scroll-column::-webkit-scrollbar-thumb {
+  background: rgba(200, 163, 91, 0.55);
+}
+
+.mobile-topbar {
+  display: none;
+}
+
+.section {
+  position: relative;
+  min-height: 100dvh;
+  display: flex;
+  align-items: center;
+  padding: clamp(74px, 8vw, 118px) clamp(26px, 4vw, 64px);
+  scroll-snap-align: start;
+  overflow: hidden;
+}
+
+.section-inner {
+  position: relative;
+  z-index: 2;
+  width: min(100%, 620px);
+  margin-inline: auto;
+}
+
+.hero-section {
+  min-height: 100dvh;
+}
+
+.hero-image {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(7, 6, 4, 0.9), rgba(7, 6, 4, 0.56) 48%, rgba(7, 6, 4, 0.86)),
+    linear-gradient(180deg, rgba(7, 6, 4, 0.25), rgba(7, 6, 4, 0.92)),
+    url("./images/hero-kotoka-japan.png") center / cover;
+  transform: scale(1.02);
+}
+
+.hero-inner {
+  min-height: 68dvh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-block: 40px;
+}
+
+h1,
+h2,
+h3,
+p {
+  text-wrap: pretty;
+}
+
+h1 {
+  margin: 18px 0 0;
+  color: var(--paper);
+  font-size: clamp(3.8rem, 5.7vw, 6.6rem);
+  line-height: 0.96;
+  font-weight: 400;
+  letter-spacing: 0;
+  text-shadow: 0 24px 70px rgba(0, 0, 0, 0.8);
+  white-space: nowrap;
+}
+
+.page-en h1 {
+  max-width: 12ch;
+  font-size: clamp(3.4rem, 4.7vw, 5.7rem);
+  line-height: 1;
+  white-space: normal;
+}
+
+rt {
+  font-family: var(--sans);
+  font-size: 0.18em;
+  letter-spacing: 0.08em;
+  color: rgba(246, 239, 224, 0.72);
+}
+
+h2 {
+  margin: 18px 0 26px;
+  color: var(--paper);
+  font-size: clamp(2.1rem, 3.8vw, 4.6rem);
+  line-height: 1.14;
+  font-weight: 400;
+}
+
+h3 {
+  margin: 8px 0 10px;
+  font-size: 1.35rem;
+  font-weight: 400;
+}
+
+p {
+  color: var(--soft);
+  font-size: clamp(1rem, 1.35vw, 1.18rem);
+  line-height: 2.05;
+}
+
+.lead {
+  margin: 24px 0 0;
+  color: var(--paper);
+  font-size: clamp(1.18rem, 1.78vw, 1.72rem);
+  line-height: 1.82;
+}
+
+.hero-note {
+  margin: 18px 0 0;
+  color: var(--muted);
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 28px;
+}
+
+.button {
+  position: relative;
+  display: inline-flex;
+  min-height: 46px;
+  align-items: center;
+  justify-content: center;
+  padding: 0 22px;
+  border: 1px solid rgba(234, 209, 154, 0.5);
+  border-radius: 999px;
+  font-family: var(--serif-en);
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  overflow: hidden;
+  transition: transform 220ms ease, border-color 220ms ease, background 220ms ease;
+}
+
+.button::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.18), transparent);
+  transform: translateX(-120%);
+  transition: transform 520ms ease;
+}
+
+.button:hover::before {
+  transform: translateX(120%);
+}
+
+.button:hover {
+  transform: translateY(-2px);
+  border-color: rgba(234, 209, 154, 0.88);
+}
+
+.button-primary {
+  background: linear-gradient(135deg, #a77c33, #ead19a 42%, #8a611f);
+  color: #150e07;
+  border-color: transparent;
+}
+
+.button-ghost {
+  background: rgba(7, 6, 4, 0.28);
+  color: var(--paper);
+}
+
+.text-section,
+.gift-section,
+.purchase-section {
+  background:
+    radial-gradient(circle at 92% 12%, rgba(156, 23, 37, 0.14), transparent 22rem),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent);
+  border-top: 1px solid rgba(200, 163, 91, 0.13);
+}
+
+.taste-grid {
+  display: grid;
+  gap: 14px;
+  margin-top: 34px;
+}
+
+.taste-grid article {
+  border-top: 1px solid var(--line);
+  padding: 22px 0 12px;
+}
+
+.taste-grid span,
+.info-list span {
+  color: var(--gold);
+  font-family: var(--serif-en);
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.taste-grid p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.98rem;
+}
+
+.info-list {
+  display: grid;
+  gap: 12px;
+  margin: 34px 0;
+  border-block: 1px solid var(--line);
+  padding: 18px 0;
+}
+
+.info-list div {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: 18px;
+  align-items: baseline;
+}
+
+.info-list strong {
+  color: var(--paper);
+  font-weight: 400;
+}
+
+.side-panel-right {
+  background:
+    radial-gradient(circle at 50% 24%, rgba(156, 23, 37, 0.28), transparent 16rem),
+    linear-gradient(180deg, #13090a, #070604 58%);
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  padding: 28px clamp(22px, 2.4vw, 42px) 38px;
+}
+
+.right-topline {
+  display: flex;
+  justify-content: flex-end;
+  z-index: 4;
+}
+
+.language-switch {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 44px;
+  padding: 0 14px;
+  border: 1px solid rgba(234, 209, 154, 0.42);
+  border-radius: 999px;
+  background: rgba(7, 6, 4, 0.46);
+  color: var(--paper);
+  font-family: var(--serif-en);
+  font-size: 0.76rem;
+  letter-spacing: 0.12em;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.26);
+}
+
+.switch-track {
+  position: relative;
+  width: 46px;
+  height: 20px;
+  border: 1px solid rgba(234, 209, 154, 0.52);
+  border-radius: 999px;
+  background: rgba(200, 163, 91, 0.1);
+}
+
+.switch-track span {
+  position: absolute;
+  top: 3px;
+  left: 4px;
+  width: 12px;
+  height: 12px;
+  border-radius: 999px;
+  background: var(--gold-bright);
+  animation: switch-pulse 2.6s ease 700ms both;
+}
+
+.switch-track.is-en span {
+  left: 28px;
+}
+
+.language-switch:hover .switch-track span {
+  transform: translateX(8px);
+}
+
+.switch-track.is-en:hover span {
+  transform: translateX(-8px);
+}
+
+.product-stage {
+  align-self: center;
+  z-index: 2;
+  margin: 22px auto;
+  width: min(100%, 390px);
+  filter: drop-shadow(0 32px 42px rgba(0, 0, 0, 0.6));
+}
+
+.product-stage img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 1px solid rgba(234, 209, 154, 0.22);
+}
+
+.product-summary {
+  position: relative;
+  z-index: 3;
+}
+
+.product-summary h2 {
+  font-family: var(--serif-en);
+  font-size: clamp(1.8rem, 2.4vw, 3.1rem);
+  line-height: 1.06;
+}
+
+.product-summary p:not(.eyebrow) {
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+
+.observe-section .section-inner {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 700ms ease, transform 700ms ease;
+}
+
+.observe-section.is-visible .section-inner {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.hero-section .section-inner {
+  transition-delay: 160ms;
+}
+
+@keyframes switch-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 rgba(234, 209, 154, 0);
+  }
+  42% {
+    box-shadow: 0 0 22px rgba(234, 209, 154, 0.85);
+  }
+}
+
+@media (max-width: 1120px) {
+  .site-shell {
+    grid-template-columns: minmax(230px, 25vw) minmax(460px, 50vw) minmax(230px, 25vw);
+  }
+
+  .product-summary h2 {
+    font-size: 1.72rem;
+  }
+}
+
+@media (max-width: 900px) {
+  body {
+    overflow: auto;
+  }
+
+  .site-shell {
+    display: block;
+    height: auto;
+    min-height: 100dvh;
+    overflow: visible;
+  }
+
+  .side-panel {
+    display: none;
+  }
+
+  .scroll-column {
+    height: auto;
+    min-height: 100dvh;
+    overflow: visible;
+    scroll-snap-type: none;
+  }
+
+  .mobile-topbar {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 66px;
+    padding: 10px 16px;
+    border-bottom: 1px solid rgba(200, 163, 91, 0.24);
+    background: rgba(7, 6, 4, 0.78);
+    -webkit-backdrop-filter: blur(16px);
+    backdrop-filter: blur(16px);
+  }
+
+  .wordmark-small {
+    color: var(--paper);
+    font-size: 1rem;
+  }
+
+  .section {
+    min-height: auto;
+    padding: 86px 22px;
+  }
+
+  .hero-section {
+    min-height: calc(100dvh - 66px);
+  }
+
+  .hero-inner {
+    min-height: calc(100dvh - 180px);
+  }
+
+  .hero-image {
+    background:
+      linear-gradient(180deg, rgba(7, 6, 4, 0.38), rgba(7, 6, 4, 0.9)),
+      url("./images/hero-kotoka-japan.png") 58% center / cover;
+  }
+
+  h1 {
+    font-size: clamp(3rem, 15vw, 4.7rem);
+    white-space: nowrap;
+  }
+
+  h2 {
+    font-size: clamp(2rem, 10vw, 3.1rem);
+  }
+
+  .lead {
+    font-size: 1.18rem;
+    line-height: 1.85;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .button {
+    width: 100%;
+  }
+
+  .info-list div {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+}
