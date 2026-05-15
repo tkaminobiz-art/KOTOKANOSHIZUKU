@@ -982,12 +982,21 @@ rt {
 }
 
 @media (max-width: 560px) {
+  html,
   body {
-    background: var(--paper);
+    height: 100%;
+    overflow: hidden;
+    background:
+      radial-gradient(circle at 18% 8%, rgba(255, 255, 255, 0.96), transparent 12rem),
+      radial-gradient(circle at 84% 16%, rgba(238, 0, 29, 0.18), transparent 15rem),
+      linear-gradient(180deg, #fffcf4 0%, #f2ead8 54%, #cf0019 100%);
   }
 
   .concept-stage {
-    padding: 0;
+    display: grid;
+    min-height: 100svh;
+    padding: 18px 14px 20px;
+    place-items: center;
   }
 
   .site-chrome {
@@ -995,43 +1004,87 @@ rt {
   }
 
   .phone-wrap {
-    min-height: 100svh;
+    width: 100%;
+    min-height: auto;
+    place-items: center;
   }
 
   .phone-frame {
-    width: 100%;
+    width: min(calc(100vw - 28px), calc((100svh - 38px) * 9 / 19.5), 374px);
     max-width: none;
-    min-height: 100svh;
-    padding: 0;
-    border: 0;
-    border-radius: 0;
-    background: transparent;
-    box-shadow: none;
+    min-height: 0;
+    padding: 9px;
+    border: 1px solid rgba(255, 235, 177, 0.78);
+    border-radius: 46px;
+    background:
+      linear-gradient(142deg, rgba(255, 244, 198, 0.95), rgba(169, 119, 38, 0.88) 7%, rgba(12, 10, 9, 0.98) 17%, #050403 48%, rgba(49, 34, 19, 0.98) 70%, rgba(235, 190, 94, 0.92) 88%, rgba(255, 245, 202, 0.96)),
+      #070605;
+    box-shadow:
+      0 24px 56px rgba(86, 39, 22, 0.3),
+      0 0 0 5px rgba(255, 253, 248, 0.66),
+      0 0 0 7px rgba(238, 0, 29, 0.055),
+      inset 0 0 0 1px rgba(255, 251, 225, 0.28),
+      inset 0 0 0 4px rgba(0, 0, 0, 0.7);
   }
 
-  .phone-frame::before,
+  .phone-frame::before {
+    inset: 7px;
+    display: block;
+    border-radius: 38px;
+  }
+
   .phone-frame::after {
-    display: none;
+    top: 21%;
+    right: -4px;
+    display: block;
+    width: 4px;
+    height: 14%;
   }
 
   .phone-screen {
-    min-height: 100svh;
-    border: 0;
-    border-radius: 0;
-    box-shadow: none;
+    min-height: 0;
+    height: 100%;
+    border: 1px solid rgba(255, 244, 198, 0.28);
+    border-radius: 35px;
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
+    box-shadow:
+      0 0 0 2px rgba(0, 0, 0, 0.88),
+      inset 0 0 0 1px rgba(255, 255, 255, 0.64);
   }
 
   .phone-screen::before {
-    display: none;
+    display: block;
+    width: 104px;
+    height: 28px;
+    margin: 7px auto -36px;
   }
 
   .status-bar {
-    display: none;
+    display: flex;
+    min-height: 47px;
+    padding: 16px 22px 4px;
+    font-size: 0.78rem;
   }
 
   .app-nav {
-    top: 0;
-    padding-top: 14px;
+    top: 40px;
+    padding: 10px 18px 7px;
+  }
+
+  .brand-mini {
+    font-size: 0.96rem;
+  }
+
+  .lang-pill {
+    min-height: 27px;
+    padding: 0 9px;
+    font-size: 0.62rem;
+  }
+
+  .menu-button {
+    width: 36px;
+    height: 36px;
   }
 }
 
