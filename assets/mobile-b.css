@@ -995,10 +995,12 @@ rt {
 
   .concept-stage {
     display: grid;
+    width: 100dvw;
     height: 100dvh;
     min-height: 0;
-    padding: 10px 14px 18px;
-    place-items: center;
+    padding: clamp(42px, 8.5dvh, 74px) 0 0;
+    justify-items: center;
+    align-items: start;
   }
 
   .site-chrome {
@@ -1008,37 +1010,38 @@ rt {
   .phone-wrap {
     width: 100%;
     min-height: auto;
-    place-items: center;
+    justify-items: center;
+    align-items: start;
   }
 
   .phone-frame {
-    width: clamp(220px, min(66vw, calc((100dvh - 154px) * 9 / 19.5)), 292px);
+    width: min(calc(100dvw - 38px), 414px);
+    height: auto;
     max-width: none;
     min-height: 0;
+    aspect-ratio: 9 / 19.5;
     padding: 8px;
     border: 1px solid rgba(255, 235, 177, 0.78);
-    border-radius: 42px;
+    border-radius: clamp(34px, 9.6vw, 52px);
     background:
       linear-gradient(142deg, rgba(255, 244, 198, 0.95), rgba(169, 119, 38, 0.88) 7%, rgba(12, 10, 9, 0.98) 17%, #050403 48%, rgba(49, 34, 19, 0.98) 70%, rgba(235, 190, 94, 0.92) 88%, rgba(255, 245, 202, 0.96)),
       #070605;
     box-shadow:
-      0 18px 42px rgba(86, 39, 22, 0.28),
-      0 0 0 4px rgba(255, 253, 248, 0.66),
-      0 0 0 6px rgba(238, 0, 29, 0.055),
+      0 10px 26px rgba(86, 39, 22, 0.2),
       inset 0 0 0 1px rgba(255, 251, 225, 0.28),
       inset 0 0 0 4px rgba(0, 0, 0, 0.7);
-    transform: translateY(-5dvh);
+    transform: none;
   }
 
   .phone-frame::before {
     inset: 6px;
     display: block;
-    border-radius: 36px;
+    border-radius: clamp(29px, 8vw, 44px);
   }
 
   .phone-frame::after {
     top: 21%;
-    right: -4px;
+    right: 0;
     display: block;
     width: 4px;
     height: 14%;
@@ -1048,7 +1051,7 @@ rt {
     min-height: 0;
     height: 100%;
     border: 1px solid rgba(255, 244, 198, 0.28);
-    border-radius: 32px;
+    border-radius: clamp(27px, 7.3vw, 40px);
     overscroll-behavior: contain;
     -webkit-overflow-scrolling: touch;
     box-shadow:
@@ -1188,7 +1191,8 @@ rt {
 
 @media (max-width: 390px) {
   .phone-frame {
-    width: clamp(214px, min(64vw, calc((100dvh - 150px) * 9 / 19.5)), 270px);
+    width: calc(100dvw - 30px);
+    height: auto;
   }
 
   .hero-panel,
