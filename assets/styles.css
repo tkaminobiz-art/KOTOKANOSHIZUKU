@@ -550,6 +550,24 @@ img {
   background: rgba(200, 163, 91, 0.1);
 }
 
+.chapter-nav a.test-page-link {
+  width: 58px;
+  height: 30px;
+  justify-self: end;
+  border-color: rgba(234, 209, 154, 0.32);
+  color: rgba(246, 239, 224, 0.72);
+  font-size: 0.58rem;
+  letter-spacing: 0.12em;
+}
+
+.chapter-nav a.test-page-link:hover,
+.test-page-pill:hover,
+.mobile-test-link:hover {
+  border-color: rgba(234, 209, 154, 0.86);
+  color: var(--gold-bright);
+  background: rgba(200, 163, 91, 0.14);
+}
+
 .scroll-column {
   height: 100dvh;
   overflow-y: auto;
@@ -575,6 +593,12 @@ img {
 
 .mobile-topbar {
   display: none;
+}
+
+.mobile-topbar-actions {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
 }
 
 .section {
@@ -1052,8 +1076,33 @@ p {
 
 .right-topline {
   display: flex;
+  align-items: center;
   justify-content: flex-end;
+  gap: 10px;
   z-index: 4;
+}
+
+.test-page-pill,
+.mobile-test-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(234, 209, 154, 0.34);
+  border-radius: 999px;
+  background: rgba(7, 6, 4, 0.34);
+  color: rgba(246, 239, 224, 0.76);
+  font-family: var(--serif-jp);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.2);
+  transition: border-color 240ms ease, color 240ms ease, background 240ms ease;
+}
+
+.test-page-pill {
+  min-height: 44px;
+  padding: 0 14px;
+  font-size: 0.7rem;
 }
 
 .language-switch {
@@ -1638,6 +1687,40 @@ body.is-opening .right-topline {
   .wordmark-small {
     color: var(--paper);
     font-size: 1rem;
+  }
+
+  .mobile-topbar-actions {
+    max-width: calc(100% - 132px);
+  }
+
+  .mobile-test-link {
+    min-height: 34px;
+    padding: 0 10px;
+    font-size: 0.65rem;
+    white-space: nowrap;
+  }
+
+  .mobile-topbar .language-switch {
+    min-height: 34px;
+    padding: 0 10px;
+    gap: 7px;
+    font-size: 0.66rem;
+  }
+
+  .mobile-topbar .switch-track {
+    width: 36px;
+    height: 18px;
+  }
+
+  .mobile-topbar .switch-track span {
+    top: 3px;
+    left: 4px;
+    width: 10px;
+    height: 10px;
+  }
+
+  .mobile-topbar .switch-track.is-en span {
+    left: 22px;
   }
 
   .section {
