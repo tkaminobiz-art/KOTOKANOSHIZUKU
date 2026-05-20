@@ -63,7 +63,6 @@
           <a href="#taste" data-nav-target="taste">03</a>
           <a href="#craft" data-nav-target="craft">04</a>
           <a href="#gift" data-nav-target="gift">05</a>
-          <a class="test-page-link" href="./mobile-b/" aria-label="テストページ">TEST</a>
         </nav>
       </aside>
 
@@ -71,7 +70,11 @@
         <header class="mobile-topbar" aria-label="Mobile navigation">
           <a class="wordmark-small" href="#hero">古都華の雫</a>
           <div class="mobile-topbar-actions">
-            <a class="mobile-test-link" href="./mobile-b/">テストページ</a>
+            <nav class="type-switcher type-switcher-mobile" aria-label="LP type selection">
+              <a class="is-active" href="./" aria-current="page">A</a>
+              <a href="./mobile-b/">B</a>
+              <a href="./type-c/">C</a>
+            </nav>
             <a class="language-switch" href="./en/" aria-label="Switch to English">
               <span>JP</span>
               <span class="switch-track" aria-hidden="true"><span></span></span>
@@ -228,7 +231,11 @@
 
       <aside class="side-panel side-panel-right" aria-label="Product and language">
         <div class="right-topline">
-          <a class="test-page-pill" href="./mobile-b/">テストページ</a>
+          <nav class="type-switcher" aria-label="LP type selection">
+            <a class="is-active" href="./" aria-current="page">A TYPE</a>
+            <a href="./mobile-b/">B TYPE</a>
+            <a href="./type-c/">C TYPE</a>
+          </nav>
           <a class="language-switch language-switch-desktop" href="./en/" aria-label="Switch to English">
             <span>JP</span>
             <span class="switch-track" aria-hidden="true"><span></span></span>
