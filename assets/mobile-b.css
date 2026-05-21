@@ -839,7 +839,7 @@ rt {
 }
 
 .story-travel img {
-  object-position: center 48%;
+  object-position: 68% 50%;
 }
 
 .story-gift img {
@@ -879,6 +879,60 @@ rt {
   color: var(--muted);
   font-size: 0.86rem;
   line-height: 1.78;
+}
+
+.use-cases {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  padding: 2px 17px 22px;
+  background: var(--paper-light);
+}
+
+.use-cases article {
+  position: relative;
+  overflow: hidden;
+  min-height: 166px;
+  padding: 18px 15px 16px;
+  border: 1px solid rgba(185, 138, 53, 0.34);
+  border-radius: 23px;
+  background:
+    radial-gradient(circle at 100% 0%, rgba(238, 0, 29, 0.12), transparent 56%),
+    linear-gradient(145deg, #fffdf8, #f5ecd7 62%, #2a160e 63%, #090505 100%);
+  box-shadow: 0 18px 42px rgba(116, 67, 42, 0.12);
+}
+
+.use-cases article::after {
+  position: absolute;
+  right: 16px;
+  bottom: 15px;
+  width: 34px;
+  height: 1px;
+  content: "";
+  background: linear-gradient(90deg, transparent, rgba(255, 225, 146, 0.78));
+}
+
+.use-cases p {
+  color: var(--red);
+  font-family: var(--serif);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+}
+
+.use-cases h2 {
+  margin-top: 12px;
+  color: var(--ink);
+  font-size: 1.08rem;
+  line-height: 1.2;
+}
+
+.use-cases span {
+  display: block;
+  margin-top: 11px;
+  color: rgba(24, 16, 13, 0.68);
+  font-size: 0.76rem;
+  line-height: 1.72;
 }
 
 .product-sheet {
@@ -1215,8 +1269,35 @@ rt {
   }
 
   .story-card h2,
+  .use-cases h2,
   .product-sheet h2 {
     font-size: 1.22rem;
+  }
+
+  .use-cases {
+    gap: 8px;
+    padding: 0 17px 22px;
+  }
+
+  .use-cases article {
+    min-height: 148px;
+    padding: 15px 13px 14px;
+    border-radius: 20px;
+  }
+
+  .use-cases p {
+    font-size: 0.5rem;
+  }
+
+  .use-cases h2 {
+    margin-top: 9px;
+    font-size: 0.92rem;
+  }
+
+  .use-cases span {
+    margin-top: 9px;
+    font-size: 0.64rem;
+    line-height: 1.58;
   }
 
   .purchase-dock {
