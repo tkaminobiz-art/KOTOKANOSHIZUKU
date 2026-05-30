@@ -307,16 +307,17 @@ button {
   margin: 0;
   color: #f8dda0;
   font-family: var(--serif);
-  font-size: clamp(1.92rem, 2.7vw, 2.58rem);
-  line-height: 0.94;
+  font-size: clamp(1.28rem, 1.9vw, 1.72rem);
+  line-height: 1.08;
+  white-space: nowrap;
   text-shadow: 0 0 24px rgba(248, 221, 160, 0.16);
 }
 
 .luxury-card h2 span {
-  display: block;
-  margin-top: 10px;
+  display: inline;
+  margin-left: 0.16em;
   color: rgba(255, 247, 222, 0.78);
-  font-size: 0.52em;
+  font-size: 0.72em;
   font-weight: 500;
   letter-spacing: 0.08em;
 }
@@ -755,10 +756,11 @@ rt {
 
 .lead {
   font-family: var(--serif);
-  font-size: 1.5rem;
+  font-size: 1.22rem;
   font-weight: 700;
-  line-height: 1.72;
-  letter-spacing: 0.03em;
+  line-height: 1.36;
+  letter-spacing: 0;
+  white-space: nowrap;
 }
 
 .sublead {
@@ -869,8 +871,9 @@ rt {
 .story-card h2 {
   margin-top: 8px;
   color: var(--ink);
-  font-size: 1.66rem;
-  line-height: 1.22;
+  font-size: 1.28rem;
+  line-height: 1.18;
+  white-space: nowrap;
 }
 
 .story-card span {
@@ -924,7 +927,8 @@ rt {
   margin-top: 12px;
   color: var(--ink);
   font-size: 1.08rem;
-  line-height: 1.2;
+  line-height: 1.18;
+  white-space: nowrap;
 }
 
 .use-cases span {
@@ -948,8 +952,9 @@ rt {
 
 .product-sheet h2 {
   color: var(--ink);
-  font-size: 1.66rem;
-  line-height: 1.3;
+  font-size: 1.34rem;
+  line-height: 1.18;
+  white-space: nowrap;
 }
 
 .product-sheet dl {
@@ -1260,7 +1265,7 @@ rt {
   }
 
   .lead {
-    font-size: 1.02rem;
+    font-size: 0.94rem;
   }
 
   .sublead {
@@ -1271,7 +1276,7 @@ rt {
   .story-card h2,
   .use-cases h2,
   .product-sheet h2 {
-    font-size: 1.22rem;
+    font-size: 1.06rem;
   }
 
   .use-cases {
@@ -1291,7 +1296,7 @@ rt {
 
   .use-cases h2 {
     margin-top: 9px;
-    font-size: 0.92rem;
+    font-size: 0.84rem;
   }
 
   .use-cases span {
@@ -1347,6 +1352,6 @@ rt {
   }
 
   .lead {
-    font-size: 0.98rem;
+    font-size: 0.88rem;
   }
 }
