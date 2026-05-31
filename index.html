@@ -1,21 +1,21 @@
 <!doctype html>
-<html lang="ja">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>古都華の雫 | 奈良発プレミアムコンフィチュール</title>
+    <title>Kotoka no Shizuku | Premium Kotoka Confiture from Nara</title>
     <meta
       name="description"
-      content="奈良県産ブランド苺・古都華を100%使用したプレミアムコンフィチュール。黒と金のギフト仕様で、旅の余韻を持ち帰る一瓶。"
+      content="Premium Kotoka confiture made with Nara-grown Kotoka strawberries. A black-and-gold gift from Nara, created for duty-free shops and department-store presentation."
     />
     <link rel="stylesheet" href="./assets/mobile-b.css" />
   </head>
-  <body>
-    <main class="concept-stage" aria-label="古都華の雫">
+  <body data-lang="en">
+    <main class="concept-stage" aria-label="Kotoka no Shizuku">
       <header class="site-chrome" aria-label="Site navigation">
         <a class="site-logo" href="./">KOTOKA NO SHIZUKU</a>
         <nav class="type-menu" aria-label="Main navigation">
-          <a href="#discover">Story</a>
+          <a href="#discover">Nara</a>
           <a href="#gift">Gift</a>
           <a href="#taste">Taste</a>
           <a href="./recipe/">Recipe</a>
@@ -25,17 +25,25 @@
       <nav class="type-mobile-dock" aria-label="Main navigation">
         <a class="is-active" href="./" aria-current="page">Top</a>
         <a href="#gift">Gift</a>
-        <a href="#taste">Use</a>
+        <a href="#taste">Taste</a>
         <a href="./recipe/">Recipe</a>
       </nav>
 
       <aside class="desktop-note desktop-note-left" aria-label="LP sections">
         <p>strawberry<br />gift<br />from<br />nara</p>
         <ol>
-          <li><a href="#discover"><span>1</span>旅の終わりに出会う</a></li>
-          <li><a href="#gift"><span>2</span>贈りものとして選ぶ</a></li>
-          <li><a href="#taste"><span>3</span>食卓で楽しむ</a></li>
-          <li><a href="#trust"><span>4</span>帰国後も届ける</a></li>
+          <li>
+            <a href="#discover"><span>1</span><span class="lang-en">About Nara</span><span class="lang-ja">奈良について</span></a>
+          </li>
+          <li>
+            <a href="#kotoka"><span>2</span><span class="lang-en">About Kotoka</span><span class="lang-ja">古都華について</span></a>
+          </li>
+          <li>
+            <a href="#gift"><span>3</span><span class="lang-en">Gift Box</span><span class="lang-ja">ギフト仕様</span></a>
+          </li>
+          <li>
+            <a href="#taste"><span>4</span><span class="lang-en">Taste</span><span class="lang-ja">味わい</span></a>
+          </li>
         </ol>
       </aside>
 
@@ -48,8 +56,8 @@
             <img src="./assets/images/product-jar-placeholder.png" alt="" />
           </figure>
           <div class="luxury-name">
-            <span>古都華の雫</span>
-            <small>ことかのしずく</small>
+            <span>Kotoka no Shizuku</span>
+            <small><span class="lang-en">Premium Kotoka Confiture</span><span class="lang-ja">古都華の雫</span></small>
           </div>
           <dl class="luxury-specs">
             <div>
@@ -62,11 +70,14 @@
             </div>
             <div>
               <dt>Sugar</dt>
-              <dd>きび砂糖</dd>
+              <dd><span class="lang-en">Japanese cane sugar</span><span class="lang-ja">きび砂糖</span></dd>
             </div>
           </dl>
-          <p class="luxury-copy">百貨店・免税店ギフトにふさわしい、箱と紙袋まで整えた黒と金のプレミアムパッケージ。</p>
-          <a href="#purchase">購入案内を見る</a>
+          <p class="luxury-copy">
+            <span class="lang-en">A black-and-gold gift box made for duty-free shops and department-store gifting.</span>
+            <span class="lang-ja">百貨店・免税店ギフトにふさわしい、黒と金の箱入りパッケージ。</span>
+          </p>
+          <a href="#purchase"><span class="lang-en">Online purchase coming soon</span><span class="lang-ja">オンライン購入は準備中</span></a>
         </div>
       </aside>
 
@@ -84,9 +95,14 @@
             </div>
 
             <header class="app-nav">
-              <a class="brand-mini" href="./">古都華の雫</a>
+              <a class="brand-mini" href="./"><span class="lang-en">Kotoka no Shizuku</span><span class="lang-ja">古都華の雫</span></a>
               <div class="nav-tools">
-                <a class="lang-pill recipe-pill" href="./recipe/" aria-label="レシピページへ">
+                <button class="language-toggle" type="button" aria-label="Switch language" aria-pressed="false" data-lang-toggle>
+                  <span>EN</span>
+                  <span class="toggle-dot" aria-hidden="true"></span>
+                  <span>JP</span>
+                </button>
+                <a class="lang-pill recipe-pill" href="./recipe/" aria-label="Open recipe page">
                   <span>Recipe</span>
                 </a>
                 <button class="menu-button" type="button" aria-label="Menu">
@@ -97,111 +113,135 @@
             </header>
 
             <section class="hero-panel" aria-labelledby="mobile-b-title">
-              <img src="./assets/images/mobile-b-bright-hero.png" alt="" />
+              <img class="hero-fv-image" src="./assets/images/fv-duty-free-product-hero.png" alt="" />
               <div class="hero-copy">
-                <p class="eyebrow">Nara Strawberry Gift</p>
+                <p class="eyebrow">Nara Duty-Free Gift</p>
                 <h1 id="mobile-b-title">
-                  <ruby>古都華<rt>ことか</rt></ruby>の雫
+                  <span class="lang-en">Kotoka no Shizuku</span>
+                  <span class="lang-ja">古都華の雫</span>
                 </h1>
-                <p>一年中、奈良の赤い香りを。</p>
+                <p><span class="lang-en">A premium Kotoka confiture from Nara.</span><span class="lang-ja">一年中、奈良の赤い香りを。</span></p>
               </div>
             </section>
 
-            <section class="love-call" aria-label="ブランドメッセージ">
-              <p class="lead">
-                旅の終わりに、奈良の赤い香りを。
-              </p>
-              <p class="sublead">
-                甘み、酸味、香り。その余韻まで、明るく上質な贈りものに。
-              </p>
-              <a class="overseas-pill" href="./recipe/">recipe</a>
+            <section class="nara-section" id="discover" aria-labelledby="nara-section-title">
+              <figure class="nara-visual">
+                <img src="./assets/images/hero-kotoka-japan.png" alt="A quiet Nara garden atmosphere with red strawberries" />
+              </figure>
+              <div class="nara-panel">
+                <p class="section-number">01 / NARA</p>
+                <p class="eyebrow">About Nara</p>
+                <h2 id="nara-section-title">
+                  <span class="lang-en">From one of Japan's ancient capitals.</span>
+                  <span class="lang-ja">日本のはじまりに近い場所から。</span>
+                </h2>
+                <p>
+                  <span class="lang-en">Nara is known as one of Japan's ancient capitals. Temples, mountain scenery, seasonal light, and a quiet sense of time still shape the region today.</span>
+                  <span class="lang-ja">奈良は、日本の古い都として知られる土地です。寺社、山並み、季節の光、静かな時間。長い歴史の中で受け継がれてきた美意識が、今も日常の中に残っています。</span>
+                </p>
+                <p>
+                  <span class="lang-en">Kotoka no Shizuku is made from Kotoka, a strawberry variety born in Nara. It is not an ordinary souvenir, but a food gift shaped to carry the character of Nara.</span>
+                  <span class="lang-ja">古都華の雫は、そんな奈良で生まれたブランドいちごを使ったコンフィチュールです。観光地の土産ではなく、奈良の価値をきちんと贈れる食品ギフトとして仕立てています。</span>
+                </p>
+                <div class="nara-facts" aria-label="Nara keywords">
+                  <span><span class="lang-en">Ancient capital</span><span class="lang-ja">古都</span></span>
+                  <span><span class="lang-en">Quiet time</span><span class="lang-ja">静かな時間</span></span>
+                  <span><span class="lang-en">Nara gift</span><span class="lang-ja">奈良ギフト</span></span>
+                </div>
+              </div>
             </section>
 
-            <section class="mini-index" aria-label="購入体験の流れ">
-              <a href="#discover"><span>1</span>DISCOVER</a>
-              <a href="#gift"><span>2</span>GIFT</a>
-              <a href="#taste"><span>3</span>USE</a>
-              <a href="#trust"><span>4</span>REORDER</a>
+            <section class="mini-index" aria-label="Page sections">
+              <a href="#discover"><span>1</span>NARA</a>
+              <a href="#kotoka"><span>2</span>KOTOKA</a>
+              <a href="#gift"><span>3</span>GIFT</a>
+              <a href="#taste"><span>4</span>TASTE</a>
             </section>
 
             <section class="story-stack" aria-label="Brand journey">
-              <article class="story-card story-travel" id="discover">
-                <img src="./assets/images/mobile-b-duty-free.png" alt="免税店ギフトとして黒金の紙袋と並ぶ古都華の雫" />
+              <article class="story-card story-kotoka" id="kotoka">
+                <img src="./assets/images/mobile-b-bright-food.png" alt="Kotoka strawberry and confiture serving image" />
                 <div>
-                  <p>01 DISCOVER</p>
-                  <h2>空港で、ふと目に留まる。</h2>
-                  <span>旅の最後に手に取りたくなる、黒と金が印象に残る奈良の手土産へ。</span>
+                  <p>02 KOTOKA</p>
+                  <h2><span class="lang-en">A Nara-born strawberry.</span><span class="lang-ja">奈良生まれのブランドいちご。</span></h2>
+                  <span><span class="lang-en">Developed in Nara, Kotoka is known for its deep red color, glossy skin, pronounced sweetness, gentle acidity, and bright aroma.</span><span class="lang-ja">古都華は、奈良県が育成したブランドいちご。濃い赤色、つや、甘み、酸味、華やかな香りが特徴です。</span></span>
                 </div>
               </article>
 
               <article class="story-card story-gift" id="gift">
-                <img src="./assets/images/mobile-b-bright-gift.png" alt="ギフトボックスに入った古都華の雫" />
+                <img src="./assets/images/mobile-b-bright-gift.png" alt="Kotoka no Shizuku in a gift box" />
                 <div>
-                  <p>02 GIFT</p>
-                  <h2>渡す瞬間まで、きれい。</h2>
-                  <span>箱と紙袋まで含めて、百貨店ギフトにも馴染む華やかな佇まい。</span>
+                  <p>03 PRODUCT</p>
+                  <h2><span class="lang-en">A gift for every season.</span><span class="lang-ja">一年中贈れる一瓶へ。</span></h2>
+                  <span><span class="lang-en">The short season of Kotoka is captured in a premium confiture, prepared with Japanese cane sugar and presented in a refined gift box.</span><span class="lang-ja">旬の短い古都華を、きび砂糖で仕立てたプレミアムコンフィチュールに。箱入りのギフト仕様です。</span></span>
                 </div>
               </article>
 
               <article class="story-card story-food" id="taste">
-                <img src="./assets/images/mobile-b-bright-food.png" alt="朝食のテーブルに置かれた古都華の雫" />
+                <img src="./assets/images/mobile-b-bright-food.png" alt="Kotoka no Shizuku on a breakfast table" />
                 <div>
                   <p>03 TASTE</p>
-                  <h2>甘み、酸味、香りがほどける。</h2>
-                  <span>糖度38度前後。きび砂糖で、古都華らしい余韻を引き立てる。</span>
+                  <h2><span class="lang-en">Sweetness, acidity, aroma.</span><span class="lang-ja">甘み・酸味・香り。</span></h2>
+                  <span><span class="lang-en">Around 38° Brix, with a bright balance of sweetness, acidity, and aroma for breakfast, desserts, cheese, and savory pairings.</span><span class="lang-ja">糖度38度前後。古都華らしい味わいを、パンやヨーグルト、チーズ、料理まで楽しめます。</span></span>
                 </div>
               </article>
             </section>
 
-            <section class="use-cases" aria-label="古都華の雫の楽しみ方">
-              <article>
-                <p>ICE CREAM</p>
-                <h2>アイスがけ</h2>
-                <span>バニラアイスにひと匙。冷たい乳脂に、古都華の香りがすっと立ち上がる。</span>
-              </article>
-              <article>
-                <p>MEAT DISH</p>
-                <h2>肉料理のソース</h2>
-                <span>鴨や豚のローストに。赤ワインやバルサミコと合わせて、脂をきれいに締める。</span>
-              </article>
-            </section>
-
-            <section class="product-sheet" id="trust" aria-label="商品情報">
+            <section class="product-sheet" id="trust" aria-label="Product information">
               <p class="eyebrow">Product Sheet</p>
-              <h2>選ぶ前に見える、商品情報。</h2>
+              <h2><span class="lang-en">Product Information</span><span class="lang-ja">製品情報</span></h2>
               <dl>
                 <div>
                   <dt>Strawberry</dt>
-                  <dd>奈良県産 古都華100%</dd>
+                  <dd><span class="lang-en">Made with 100% Nara-grown Kotoka</span><span class="lang-ja">奈良県産 古都華100%</span></dd>
                 </div>
                 <div>
                   <dt>Brix</dt>
-                  <dd>糖度38度前後</dd>
+                  <dd><span class="lang-en">Around 38°</span><span class="lang-ja">糖度38度前後</span></dd>
                 </div>
                 <div>
                   <dt>Sugar</dt>
-                  <dd>国産きび砂糖</dd>
+                  <dd><span class="lang-en">Japanese cane sugar</span><span class="lang-ja">国産きび砂糖</span></dd>
                 </div>
                 <div>
                   <dt>Flavoring</dt>
-                  <dd>バニラエッセンスのみ</dd>
+                  <dd><span class="lang-en">Vanilla essence only</span><span class="lang-ja">バニラエッセンスのみ</span></dd>
                 </div>
                 <div>
                   <dt>Gift</dt>
-                  <dd>2本箱入り / 紙袋付き</dd>
+                  <dd><span class="lang-en">Two-bottle gift box</span><span class="lang-ja">2本箱入り</span></dd>
                 </div>
               </dl>
             </section>
 
             <footer class="purchase-dock" id="purchase">
-              <a href="mailto:info@example.com" aria-label="取扱いを問い合わせる">
+              <div class="purchase-status" role="status">
                 <span class="cart-icon" aria-hidden="true"></span>
-                <span>取扱いを聞く</span>
-              </a>
+                <span><span class="lang-en">Online purchase coming soon</span><span class="lang-ja">オンライン購入は準備中</span></span>
+              </div>
             </footer>
           </div>
         </div>
       </section>
     </main>
+    <script>
+      const languageToggle = document.querySelector("[data-lang-toggle]");
+      const root = document.documentElement;
+      const body = document.body;
+
+      const setLanguage = (language) => {
+        const isJapanese = language === "ja";
+        body.dataset.lang = language;
+        root.lang = language;
+        languageToggle?.setAttribute("aria-pressed", String(isJapanese));
+        languageToggle?.setAttribute("aria-label", isJapanese ? "Switch to English" : "Switch to Japanese");
+      };
+
+      languageToggle?.addEventListener("click", () => {
+        setLanguage(body.dataset.lang === "ja" ? "en" : "ja");
+      });
+
+      setLanguage("en");
+    </script>
   </body>
 </html>
