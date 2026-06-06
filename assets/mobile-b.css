@@ -351,6 +351,29 @@ button {
   letter-spacing: 0.08em;
 }
 
+.luxury-card h2 .luxury-title-en,
+.luxury-card h2 .luxury-title-ja {
+  margin-left: 0;
+  color: #f8dda0;
+  font-size: 1em;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.luxury-card h2 .luxury-title-en em {
+  margin-left: 0.16em;
+  color: rgba(255, 247, 222, 0.78);
+  font-size: 0.72em;
+  font-style: normal;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+}
+
+body:not([data-lang="ja"]) .luxury-card h2 .luxury-title-ja,
+body[data-lang="ja"] .luxury-card h2 .luxury-title-en {
+  display: none;
+}
+
 .luxury-product {
   position: relative;
   z-index: 1;
