@@ -584,7 +584,7 @@ button {
   background: var(--red);
 }
 
-body[data-lang="ja"] .toggle-dot::before {
+body[data-lang="en"] .toggle-dot::before {
   left: 13px;
 }
 

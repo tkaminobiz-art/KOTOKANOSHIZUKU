@@ -771,7 +771,7 @@ body[data-lang="ja"] .brand-mini {
   background: var(--red);
 }
 
-body[data-lang="ja"] .toggle-dot::before {
+body[data-lang="en"] .toggle-dot::before {
   left: 13px;
 }
 
@@ -1926,7 +1926,7 @@ body[data-lang="ja"] #kotoka-section-title {
     height: 5px;
   }
 
-  body[data-lang="ja"] .toggle-dot::before {
+  body[data-lang="en"] .toggle-dot::before {
     left: 12px;
   }
 
