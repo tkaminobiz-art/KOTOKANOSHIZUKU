@@ -74,7 +74,7 @@ main, .site-footer { container-type: inline-size; }
   display: flex; align-items: center; justify-content: space-between; gap: 1rem;
   max-width: var(--col); margin: 0 auto; padding: 0.875rem var(--gx);
 }
-.site-header.is-fixed { position: fixed; background: rgba(31, 5, 12, 0.96); border-bottom: 1px solid var(--gold-line); }
+.site-header.is-fixed { position: fixed; background: var(--g-900); border-bottom: 1px solid var(--gold-line); }
 .site-header:not(.is-fixed) .brand { visibility: hidden; }
 .brand { display: grid; gap: 0.125rem; text-decoration: none; line-height: 1.3; }
 .brand-ja { font-family: var(--f-min); font-weight: 700; font-size: 1.125rem; letter-spacing: 0.16em; }
