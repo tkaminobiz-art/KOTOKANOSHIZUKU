@@ -1,4 +1,4 @@
-// 古都華のしずく LP 2026-10: メニュー、固定ヘッダー、旬の帯の表示
+// 古都華のしずく LP 2026-10: メニュー、固定ヘッダー、旬の帯と斜めの帯の表示
 (() => {
   document.documentElement.classList.add("js");
 
@@ -47,5 +47,20 @@
     observer.observe(timeline);
   } else {
     timeline?.classList.add("is-in");
+  }
+
+  // 斜めの帯：画面に入ったら一度だけ開く
+  const bands = document.querySelectorAll("[data-reveal]");
+  if ("IntersectionObserver" in window) {
+    const observer = new IntersectionObserver((entries) => {
+      for (const entry of entries) {
+        if (!entry.isIntersecting) continue;
+        entry.target.classList.add("is-in");
+        observer.unobserve(entry.target);
+      }
+    }, { threshold: 0.2 });
+    bands.forEach((band) => observer.observe(band));
+  } else {
+    bands.forEach((band) => band.classList.add("is-in"));
   }
 })();
