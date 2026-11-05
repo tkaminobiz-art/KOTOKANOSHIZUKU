@@ -5,3 +5,5 @@ docs/
 .env
 .env.*
 *.log
+_mobile-verify/
+_design-tells/
