@@ -168,6 +168,11 @@ ul, ol { list-style: none; }
   .btn-main:hover { background: var(--milk-deep); }
 }
 .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: var(--gap-h); }
+/* スマホでは縦に積むボタンの幅をそろえる（2026-11-05 比較D。小さな絞り込みボタンは文字幅のまま） */
+@media (max-width: 599px) {
+  .actions .btn:not(.btn-sm), .fv-buttons .btn { width: 100%; flex: 1 1 100%; }
+  .fv-buttons { max-width: none; }
+}
 
 /* ---------- 節の共通 ---------- */
 .sec { padding-block: calc(var(--sec-m) / 2); }
