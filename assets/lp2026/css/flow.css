@@ -22,8 +22,6 @@
 .scene-lead { max-width: 34rem; }
 .scene-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: end; margin-top: var(--gap-h); }
 .scene-grid figure { position: relative; }
-.scene-grid img { width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; mix-blend-mode: multiply;
-  -webkit-mask-image: radial-gradient(ellipse 76% 84% at 50% 54%, #000 34%, transparent 100%); mask-image: radial-gradient(ellipse 76% 84% at 50% 54%, #000 34%, transparent 100%); }
 .scene-grid figcaption { margin-top: 0; text-align: center; }
 @media (min-width: 900px) {
   .sec.scene h2 .br-sp { display: inline; }
@@ -39,9 +37,7 @@
   -webkit-mask-image: linear-gradient(to right, #000 62%, transparent 100%); mask-image: linear-gradient(to right, #000 62%, transparent 100%); }
 .sec.kotoka .wrap { position: relative; z-index: 1; }
 .kotoka-photos { align-items: center; }
-.kotoka-photos img { mix-blend-mode: multiply;
-  -webkit-mask-image: radial-gradient(ellipse 76% 84% at 50% 54%, #000 34%, transparent 100%); mask-image: radial-gradient(ellipse 76% 84% at 50% 54%, #000 34%, transparent 100%); }
-.kotoka-photos img:last-of-type { transform: translateY(-14%); }
+
 @media (max-width: 899px) { .sec.kotoka .e-ribbon { width: 100%; height: 60%; top: -6%; } }
 
 /* ---------- 平城宮跡：紫の節の上下を波にして、流れの言葉を保つ ---------- */
@@ -61,16 +57,30 @@
 .sec.howto { position: relative; padding-top: calc(var(--sec-m) * 0.8); }
 .sec.howto .e-stream { position: absolute; inset: -6% 0 -8% 0; z-index: 0; }
 .sec.howto .wrap { position: relative; z-index: 1; }
-.howto-photos img { mix-blend-mode: multiply;
-  -webkit-mask-image: radial-gradient(ellipse 76% 84% at 50% 54%, #000 34%, transparent 100%); mask-image: radial-gradient(ellipse 76% 84% at 50% 54%, #000 34%, transparent 100%); }
-.howto-photos figcaption { text-align: center; }
+
 .more-title { border-top-color: var(--rule); }
 
 /* ---------- 製品情報：瓶が紙の上に浮く ---------- */
-.info-jar { mix-blend-mode: multiply;
-  -webkit-mask-image: radial-gradient(ellipse 76% 84% at 50% 54%, #000 34%, transparent 100%); mask-image: radial-gradient(ellipse 76% 84% at 50% 54%, #000 34%, transparent 100%); }
 
 /* ---------- スマホの組版：両端揃えをやめ、字間を伸ばさない ---------- */
 @media (max-width: 599px) {
   .prose p, .scene-lead, .fv-lead, .fv-note, .faq .answer p, .points dd, .festival-basis { text-align: left; text-align-last: auto; }
+}
+
+/* ---------- 切り抜き写真（2026-11-11。macOS の被写体切り抜きで背景を透明にした素材） ----------
+   四角い枠を持たず、ミルクの帯や紙の地に直接置く。接地の影は形に沿わせて下へ落とす */
+img.cut { width: 100%; height: auto; aspect-ratio: auto; object-fit: contain; mix-blend-mode: normal;
+  -webkit-mask-image: none; mask-image: none;
+  filter: drop-shadow(0 14px 12px rgba(70, 40, 30, 0.14)) drop-shadow(0 2px 2px rgba(70, 40, 30, 0.10)); }
+.scene-grid { align-items: end; }
+.scene-grid figure { display: grid; justify-items: center; align-content: end; row-gap: 10px; }
+.scene-grid figure:first-child img.cut { width: 100%; }
+.scene-grid figure:last-child img.cut { width: 90%; }
+.kotoka-photos { grid-template-columns: 5fr 4fr; align-items: end; gap: 4%; }
+.kotoka-photos img.cut:last-of-type { transform: translateY(-18%) rotate(-4deg); }
+.info-jar.cut { width: min(56%, 15rem); }
+@media (min-width: 900px) {
+  .scene-grid { grid-template-columns: 7fr 5fr; column-gap: 5%; transform: none; }
+  .scene-grid figure:first-child { transform: translateY(6%); }
+  .info-jar.cut { width: 100%; max-width: 15rem; }
 }
