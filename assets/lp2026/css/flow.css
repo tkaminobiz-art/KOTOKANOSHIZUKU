@@ -76,3 +76,32 @@
 @media (max-width: 599px) {
   .prose p, .scene-lead, .fv-lead, .fv-note, .faq .answer p, .points dd, .festival-basis { text-align: left; text-align-last: auto; }
 }
+
+/* ---------- 最初の画面：黒金（2026-11-11 依頼元の要望。この節だけ黒い地に金。ほかの節は乳白のまま） ----------
+   写真＝夕暮れの庭に置いた瓶（ラベルは正式データの KOTOKA - SHIZUKU）。文字は生成りの白、商品名とボタンは箔に合わせた淡い金。 */
+.fv { --fv-bg: #15110c; --fv-ink: #f3ecdf; --fv-ink-2: rgba(243, 236, 223, 0.84); --fv-gold: #dcc48f; --fv-gold-2: #ead8ae;
+  background: var(--fv-bg); color: var(--fv-ink); }
+.fv-photo img { object-position: 50% 50%; }
+.fv-photo::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 12%; pointer-events: none;
+  background: linear-gradient(to bottom, rgba(21, 17, 12, 0), var(--fv-bg)); }
+.fv h1 { color: var(--fv-gold); }
+.fv-text { padding-bottom: calc(6.25vw + 28px); }
+.fv .fv-note { color: var(--fv-ink-2); }
+.fv .text-link { color: var(--fv-ink); }
+.fv .btn-main { background: var(--fv-gold); border-color: var(--fv-gold); color: #15110c; }
+@media (hover: hover) and (pointer: fine) { .fv .btn-main:hover { background: var(--fv-gold-2); border-color: var(--fv-gold-2); } }
+.fv :focus-visible { outline-color: var(--fv-gold-2); }
+.fv > .e-fvwave { bottom: -1px; }
+.fv-imgnote { position: absolute; right: var(--gutter); z-index: 2; margin: 0; color: rgba(243, 236, 223, 0.78); }
+/* スマホと中間幅：写真のすぐ下、文字の上の右端 */
+.fv-imgnote { top: calc(100vw * 1.25 - 2em); }
+@media (min-width: 600px) { .fv-imgnote { top: calc(100vw * 0.5625 - 2.2em); } }
+@media (min-width: 1024px) {
+  .fv-photo img { object-position: 50% 60%; }
+  .fv-photo::before { content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none;
+    background: linear-gradient(to right, rgba(12, 9, 6, 0.80) 0, rgba(12, 9, 6, 0.58) 32%, rgba(12, 9, 6, 0) 60%); }
+  .fv-photo::after { display: none; }
+  .fv-text { padding-bottom: 8%; }
+  .fv-text > * { max-width: min(34rem, 44vw); }   /* 1024px 幅で本文の行末に1字だけ残らない幅にする */
+  .fv-imgnote { top: auto; bottom: calc(6.25vw + 10px); }
+}
