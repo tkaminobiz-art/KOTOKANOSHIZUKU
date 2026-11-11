@@ -4,8 +4,7 @@
    ミルクの帯＝使う場面・贈りもの・つくり方。紙の地＝古都華（左に細い流れ）・ご購入方法・製品情報・よくある質問。 */
 
 /* ---------- 共通 ---------- */
-.e-stream, .e-ribbon, .e-edge, .e-fvwave { pointer-events: none; }
-.e-stream svg, .e-ribbon svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+.e-edge, .e-fvwave { pointer-events: none; }
 .sec.scene .sec-head, .sec.kotoka .sec-head, .sec.howto .sec-head { border-top: 0; padding-top: 0; }
 
 /* ---------- 最初の画面：写真の下縁がミルクに溶ける ---------- */
@@ -17,7 +16,6 @@
 
 /* ---------- 使う場面：ミルクの帯 ---------- */
 .sec.scene { position: relative; padding-top: calc(var(--sec-m) * 0.9); padding-bottom: calc(var(--sec-m) * 0.6); }
-.sec.scene .e-stream { position: absolute; inset: -10% 0 -14% 0; z-index: 0; }
 .sec.scene .wrap { position: relative; z-index: 1; }
 .scene-lead { max-width: 34rem; }
 .scene-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: end; margin-top: var(--gap-h); }
@@ -33,13 +31,10 @@
 
 /* ---------- 古都華：左に細い流れ、いちごが縁に浮く ---------- */
 .sec.kotoka { position: relative; padding-top: calc(var(--sec-m) * 0.5); }
-.sec.kotoka .e-ribbon { position: absolute; left: 0; top: -12%; width: 58%; height: 118%; z-index: 0;
-  -webkit-mask-image: linear-gradient(to right, #000 62%, transparent 100%); mask-image: linear-gradient(to right, #000 62%, transparent 100%); }
 .sec.kotoka .wrap { position: relative; z-index: 1; }
 .kotoka-photos { align-items: center; }
 
-@media (max-width: 899px) { .sec.kotoka .e-ribbon { width: 100%; height: 60%; top: -6%; } }
-
+@media (max-width: 899px) { 
 /* ---------- 平城宮跡：紫の節の上下を波にして、流れの言葉を保つ ---------- */
 .sec.festival { position: relative; }
 .e-edge { position: absolute; left: 0; right: 0; z-index: 3; line-height: 0; }
@@ -55,7 +50,6 @@
 
 /* ---------- つくり方：ミルクの帯の見せ場 ---------- */
 .sec.howto { position: relative; padding-top: calc(var(--sec-m) * 0.8); }
-.sec.howto .e-stream { position: absolute; inset: -6% 0 -8% 0; z-index: 0; }
 .sec.howto .wrap { position: relative; z-index: 1; }
 
 .more-title { border-top-color: var(--rule); }
@@ -83,4 +77,33 @@ img.cut { width: 100%; height: auto; aspect-ratio: auto; object-fit: contain; mi
   .scene-grid { grid-template-columns: 7fr 5fr; column-gap: 5%; transform: none; }
   .scene-grid figure:first-child { transform: translateY(6%); }
   .info-jar.cut { width: 100%; max-width: 15rem; }
+}
+
+/* ---------- ミルクの帯とマーブル（2026-11-11） ----------
+   帯は節の地色（乳白）。上下の縁は隣の節の色の波で切る。
+   マーブルは生成した実写から赤い筋だけを透過で取り出した素材で、帯の上端と下端、つまり節のつなぎ目にだけ置く。
+   位置は節の箱からの px で決め、文字と写真の帯域には入れない */
+.sec.scene, .sec.howto { background: #fbf8f2; overflow: hidden; }
+.sec.scene .e-edge, .sec.howto .e-edge { z-index: 2; }
+.e-marble { position: absolute; left: 0; right: 0; z-index: 0; background-repeat: no-repeat; background-size: 100% auto; pointer-events: none; }
+.e-marble.top { top: 0; aspect-ratio: 1600 / 306; background-position: center top; }
+.sec.howto .e-marble.top { top: 3vw; }
+.e-marble.bottom { bottom: 3vw; aspect-ratio: 1600 / 306; background-position: center bottom; }
+.e-marble.top.a { background-image: image-set(url("../img/marble/top-a-1600.webp") 1x, url("../img/marble/top-a-2560.webp") 2x); }
+.e-marble.bottom.a { background-image: image-set(url("../img/marble/bottom-a-1600.webp") 1x, url("../img/marble/bottom-a-2560.webp") 2x); }
+.e-marble.top.b { background-image: image-set(url("../img/marble/top-b-1600.webp") 1x, url("../img/marble/top-b-2560.webp") 2x); }
+.e-marble.bottom.b { background-image: image-set(url("../img/marble/bottom-b-1600.webp") 1x, url("../img/marble/bottom-b-2560.webp") 2x); }
+.sec.scene { padding-top: clamp(200px, 56vw, 250px); padding-bottom: clamp(210px, 60vw, 260px); }
+.sec.howto { padding-top: clamp(220px, 62vw, 270px); padding-bottom: clamp(210px, 60vw, 260px); }
+@media (max-width: 899px) {
+  .e-marble.top { aspect-ratio: 780 / 388; }
+  .e-marble.bottom { aspect-ratio: 780 / 361; bottom: 6vw; }
+  .sec.howto .e-marble.top { top: 5vw; }
+  .e-marble.top.a, .e-marble.top.b { background-image: image-set(url("../img/marble/top-sp-780.webp") 1x, url("../img/marble/top-sp-1170.webp") 2x); }
+  .e-marble.bottom.a, .e-marble.bottom.b { background-image: image-set(url("../img/marble/bottom-sp-780.webp") 1x, url("../img/marble/bottom-sp-1170.webp") 2x); }
+  .e-marble.b { transform: scaleX(-1); }
+}
+@media (min-width: 900px) {
+  .sec.scene { padding-top: clamp(190px, 17vw, 300px); padding-bottom: clamp(210px, 19vw, 330px); }
+  .sec.howto { padding-top: clamp(220px, 20vw, 350px); padding-bottom: clamp(210px, 19vw, 330px); }
 }
