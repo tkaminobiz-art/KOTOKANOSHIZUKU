@@ -1,6 +1,6 @@
-# Kotoka no Shizuku LP
+# KOTOKA - SHIZUKU LP
 
-Production landing page for `古都華の雫`.
+Production landing page for `古都華のしずく`.
 
 ## Current Scope
 
