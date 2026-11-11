@@ -12,11 +12,12 @@
   --rule: rgba(28, 27, 25, 0.22);
   --milk: #ecb7b5;
   --milk-deep: #e3a3a2;
-  /* 黒金（ヘッダーと最初の画面だけ）。金は、はっきりした濃い金（2026-11-11 ユーザー指示。前は淡いシャンパン色 #dcc48f） */
+  /* 黒金（ヘッダーと最初の画面だけ）。金は面で塗らず、線と文字に使う（2026-11-11。平らな濃い金 #d4a437 のボタンは「上質さがない」とのことで取りやめ）。
+     --gold＝線と商品名、--gold-2＝ボタンの文字と、押したときの面 */
   --night: #15110c;
   --night-ink: #f3ecdf;
-  --gold: #d4a437;
-  --gold-2: #e8bf58;
+  --gold: #cfae5a;
+  --gold-2: #ead596;
 
   /* 書体（2026-11-04 高級感の依頼で見直し。すべて Google Fonts）
      本文＝Shippori Mincho、見出し・商品名＝同じ仲間でかなが大きい Shippori Mincho B1、大きな数字＝Cormorant Garamond。
@@ -102,7 +103,7 @@ ul, ol { list-style: none; }
   position: sticky; top: 0; z-index: 50;
   height: var(--head-h);
   background: var(--night); color: var(--night-ink);
-  border-bottom: 1px solid rgba(212, 164, 55, 0.6);
+  border-bottom: 1px solid rgba(207, 174, 90, 0.55);
   padding-top: env(safe-area-inset-top);
 }
 .site-header .bar {
@@ -126,7 +127,7 @@ ul, ol { list-style: none; }
 }
 .site-nav {
   position: absolute; left: 0; right: 0; top: 100%;
-  background: var(--night); border-bottom: 1px solid rgba(212, 164, 55, 0.6);
+  background: var(--night); border-bottom: 1px solid rgba(207, 174, 90, 0.55);
   padding: 4px var(--gutter) 16px;
 }
 .site-nav[hidden] { display: none; }
@@ -139,9 +140,9 @@ ul, ol { list-style: none; }
 .site-nav li.nav-buy { border: 0; padding-top: 12px; }
 .site-nav .nav-buy a { justify-content: center; }
 /* ヘッダーの中のボタンは金。文字は黒 */
-.site-header .btn-main { background: var(--gold); border-color: var(--gold); color: var(--night); }
+.site-header .btn-main { background: transparent; border-color: var(--gold); color: var(--gold-2); }
 @media (hover: hover) and (pointer: fine) {
-  .site-header .btn-main:hover { background: var(--gold-2); border-color: var(--gold-2); }
+  .site-header .btn-main:hover { background: var(--gold-2); border-color: var(--gold-2); color: var(--night); }
   .site-header .menu-btn:hover { background: rgba(243, 236, 223, 0.1); }
 }
 .site-header :focus-visible { outline-color: var(--gold-2); }

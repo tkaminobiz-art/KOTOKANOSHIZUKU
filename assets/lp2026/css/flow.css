@@ -85,11 +85,20 @@
 .fv-photo::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 12%; pointer-events: none;
   background: linear-gradient(to bottom, rgba(21, 17, 12, 0), var(--fv-bg)); }
 .fv h1 { color: var(--fv-gold); }
+/* 商品名は箔のように、細かい粒と左上からの光を持たせる。画像が届くまでは下の単色が見える */
+@supports ((-webkit-background-clip: text) or (background-clip: text)) {
+  .fv h1 { background-color: var(--fv-gold);
+    background-image: linear-gradient(100deg, rgba(255, 246, 214, 0.22) 0%, rgba(255, 246, 214, 0) 40%, rgba(60, 40, 0, 0.20) 100%), url("../img/ui/gold-foil.webp");
+    background-size: 100% 100%, 128px 128px;
+    -webkit-background-clip: text; background-clip: text; color: transparent; -webkit-text-fill-color: transparent; }
+}
 .fv-text { padding-bottom: calc(6.25vw + 28px); }
 .fv .fv-note { color: var(--fv-ink-2); }
 .fv .text-link { color: var(--fv-ink); }
-.fv .btn-main { background: var(--fv-gold); border-color: var(--fv-gold); color: #15110c; }
-@media (hover: hover) and (pointer: fine) { .fv .btn-main:hover { background: var(--fv-gold-2); border-color: var(--fv-gold-2); } }
+/* ボタンは金の細い枠と金の文字。面は黒を透かす。押せることは、乗せたときに金の面へ変わることで示す */
+.fv .btn-main { background: rgba(21, 17, 12, 0.5); border-color: var(--fv-gold); color: var(--fv-gold-2); }
+@media (hover: hover) and (pointer: fine) { .fv .btn-main:hover { background: var(--fv-gold-2); border-color: var(--fv-gold-2); color: #15110c; } }
+.fv .btn-main:active { background: var(--fv-gold-2); color: #15110c; }
 .fv :focus-visible { outline-color: var(--fv-gold-2); }
 .fv > .e-fvwave { bottom: -1px; }
 @media (min-width: 1024px) {
