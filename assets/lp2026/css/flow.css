@@ -76,3 +76,42 @@
 @media (max-width: 599px) {
   .prose p, .scene-lead, .fv-lead, .fv-note, .faq .answer p, .points dd, .festival-basis { text-align: left; text-align-last: auto; }
 }
+
+/* ---------- 最初の画面：黒金（2026-11-11 依頼元の要望。この節だけ黒い地に金。ほかの節は乳白のまま） ----------
+   写真＝夕暮れの庭に置いた瓶（ラベルは正式データの KOTOKA - SHIZUKU）。文字は生成りの白、商品名とボタンは箔に合わせた淡い金。 */
+.fv { --fv-bg: var(--night); --fv-ink: var(--night-ink); --fv-ink-2: rgba(243, 236, 223, 0.84); --fv-gold: var(--gold); --fv-gold-2: var(--gold-2);
+  background: var(--fv-bg); color: var(--fv-ink); }
+.fv-photo img { object-position: 50% 50%; }
+.fv-photo::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 12%; pointer-events: none;
+  background: linear-gradient(to bottom, rgba(21, 17, 12, 0), var(--fv-bg)); }
+.fv h1 { color: var(--fv-gold); }
+/* 商品名は箔のように、細かい粒と左上からの光を持たせる。画像が届くまでは下の単色が見える */
+@supports ((-webkit-background-clip: text) or (background-clip: text)) {
+  .fv h1 { background-color: var(--fv-gold);
+    background-image: linear-gradient(100deg, rgba(255, 246, 214, 0.22) 0%, rgba(255, 246, 214, 0) 40%, rgba(60, 40, 0, 0.20) 100%), url("../img/ui/gold-foil.webp");
+    background-size: 100% 100%, 128px 128px;
+    -webkit-background-clip: text; background-clip: text; color: transparent; -webkit-text-fill-color: transparent; }
+}
+.fv-text { padding-bottom: calc(6.25vw + 28px); }
+.fv .fv-note { color: var(--fv-ink-2); }
+.fv .text-link { color: var(--fv-ink); }
+/* ボタンは金の細い枠と金の文字。面は黒を透かす。押せることは、乗せたときに金の面へ変わることで示す */
+.fv .btn-main { background: rgba(21, 17, 12, 0.5); border-color: var(--fv-gold); color: var(--fv-gold-2); }
+@media (hover: hover) and (pointer: fine) { .fv .btn-main:hover { background: var(--fv-gold-2); border-color: var(--fv-gold-2); color: #15110c; } }
+.fv .btn-main:active { background: var(--fv-gold-2); color: #15110c; }
+.fv :focus-visible { outline-color: var(--fv-gold-2); }
+.fv > .e-fvwave { bottom: -1px; }
+@media (min-width: 1024px) {
+  .fv-photo img { object-position: 50% 60%; }
+  .fv-photo::before { content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none;
+    background: linear-gradient(to right, rgba(12, 9, 6, 0.80) 0, rgba(12, 9, 6, 0.58) 32%, rgba(12, 9, 6, 0) 60%); }
+  .fv-photo::after { display: none; }
+  .fv-text { padding-bottom: 8%; }
+  .fv-text > * { max-width: min(34rem, 44vw); }   /* 1024px 幅で本文の行末に1字だけ残らない幅にする */
+}
+
+/* ---------- 最初の画面：金のかけらが降る（2026-11-11）。描画は js/flakes.js ---------- */
+.fv-flakes { position: absolute; left: 0; top: 0; width: 100%; aspect-ratio: 4 / 5; z-index: 1; pointer-events: none; }
+@media (min-width: 600px) { .fv-flakes { aspect-ratio: 16 / 9; } }
+@media (min-width: 1024px) { .fv-flakes { aspect-ratio: auto; height: 100%; } }
+@media (prefers-reduced-motion: reduce) { .fv-flakes { display: none; } }
