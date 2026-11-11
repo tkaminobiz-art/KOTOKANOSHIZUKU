@@ -92,10 +92,6 @@
 @media (hover: hover) and (pointer: fine) { .fv .btn-main:hover { background: var(--fv-gold-2); border-color: var(--fv-gold-2); } }
 .fv :focus-visible { outline-color: var(--fv-gold-2); }
 .fv > .e-fvwave { bottom: -1px; }
-.fv-imgnote { position: absolute; right: var(--gutter); z-index: 2; margin: 0; color: rgba(243, 236, 223, 0.78); }
-/* スマホと中間幅：写真のすぐ下、文字の上の右端 */
-.fv-imgnote { top: calc(100vw * 1.25 - 2em); }
-@media (min-width: 600px) { .fv-imgnote { top: calc(100vw * 0.5625 - 2.2em); } }
 @media (min-width: 1024px) {
   .fv-photo img { object-position: 50% 60%; }
   .fv-photo::before { content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none;
@@ -103,5 +99,4 @@
   .fv-photo::after { display: none; }
   .fv-text { padding-bottom: 8%; }
   .fv-text > * { max-width: min(34rem, 44vw); }   /* 1024px 幅で本文の行末に1字だけ残らない幅にする */
-  .fv-imgnote { top: auto; bottom: calc(6.25vw + 10px); }
 }
