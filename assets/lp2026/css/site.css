@@ -1,6 +1,7 @@
 /* 古都華のしずく（2026-11 版）
    方向：瓶のラベルを開いたページ。温かい乳白の地に黒い文字と細い罫線。
-   強調は混ぜたいちごミルクのピンク1色。赤は写真の中だけ。金は使わない。
+   強調は混ぜたいちごミルクのピンク1色。赤は写真の中だけ。
+   金はヘッダーと最初の画面だけに使う（2026-11-11 依頼元の要望で黒金に。ほかの節は乳白の地のまま金を使わない）。
    正本の文言：docs/renewal-2026-10/21_ページ構成と全文_20261103.md */
 
 :root {
@@ -11,6 +12,11 @@
   --rule: rgba(28, 27, 25, 0.22);
   --milk: #ecb7b5;
   --milk-deep: #e3a3a2;
+  /* 黒金（ヘッダーと最初の画面だけ）。金は瓶の箔に合わせた淡い色 */
+  --night: #15110c;
+  --night-ink: #f3ecdf;
+  --gold: #dcc48f;
+  --gold-2: #ead8ae;
 
   /* 書体（2026-11-04 高級感の依頼で見直し。すべて Google Fonts）
      本文＝Shippori Mincho、見出し・商品名＝同じ仲間でかなが大きい Shippori Mincho B1、大きな数字＝Cormorant Garamond。
@@ -95,8 +101,8 @@ ul, ol { list-style: none; }
 .site-header {
   position: sticky; top: 0; z-index: 50;
   height: var(--head-h);
-  background: var(--paper);
-  border-bottom: 1px solid var(--rule);
+  background: var(--night); color: var(--night-ink);
+  border-bottom: 1px solid rgba(220, 196, 143, 0.4);
   padding-top: env(safe-area-inset-top);
 }
 .site-header .bar {
@@ -109,28 +115,36 @@ ul, ol { list-style: none; }
   font-size: clamp(1rem, 0.95rem + 0.3vw, 1.125rem); letter-spacing: 0.14em; text-decoration: none;
   margin-right: auto; white-space: nowrap;
   min-height: 44px; display: inline-flex; align-items: center;
+  color: var(--gold);
 }
 .site-header .head-buy { display: inline-flex; padding-inline: 12px; }
 .menu-btn {
   font: inherit; font-size: 0.875rem; letter-spacing: 0.06em; white-space: nowrap;
   min-width: 44px; min-height: 44px; padding: 0 12px;
-  background: transparent; color: var(--ink);
-  border: 1px solid var(--ink); border-radius: 0; cursor: pointer;
+  background: transparent; color: var(--night-ink);
+  border: 1px solid rgba(243, 236, 223, 0.7); border-radius: 0; cursor: pointer;
 }
 .site-nav {
   position: absolute; left: 0; right: 0; top: 100%;
-  background: var(--paper); border-bottom: 1px solid var(--ink);
+  background: var(--night); border-bottom: 1px solid rgba(220, 196, 143, 0.4);
   padding: 4px var(--gutter) 16px;
 }
 .site-nav[hidden] { display: none; }
 .site-nav ul { display: grid; }
-.site-nav li { border-bottom: 1px solid var(--rule); }
+.site-nav li { border-bottom: 1px solid rgba(243, 236, 223, 0.18); }
 .site-nav a {
   display: flex; align-items: center; min-height: 52px;
   text-decoration: none; font-size: 1rem;
 }
 .site-nav li.nav-buy { border: 0; padding-top: 12px; }
 .site-nav .nav-buy a { justify-content: center; }
+/* ヘッダーの中のボタンは金。文字は黒 */
+.site-header .btn-main { background: var(--gold); border-color: var(--gold); color: var(--night); }
+@media (hover: hover) and (pointer: fine) {
+  .site-header .btn-main:hover { background: var(--gold-2); border-color: var(--gold-2); }
+  .site-header .menu-btn:hover { background: rgba(243, 236, 223, 0.1); }
+}
+.site-header :focus-visible { outline-color: var(--gold-2); }
 
 @media (max-width: 359px) {
   .site-header .bar { gap: 6px; }

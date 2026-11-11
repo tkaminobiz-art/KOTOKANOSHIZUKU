@@ -79,7 +79,7 @@
 
 /* ---------- 最初の画面：黒金（2026-11-11 依頼元の要望。この節だけ黒い地に金。ほかの節は乳白のまま） ----------
    写真＝夕暮れの庭に置いた瓶（ラベルは正式データの KOTOKA - SHIZUKU）。文字は生成りの白、商品名とボタンは箔に合わせた淡い金。 */
-.fv { --fv-bg: #15110c; --fv-ink: #f3ecdf; --fv-ink-2: rgba(243, 236, 223, 0.84); --fv-gold: #dcc48f; --fv-gold-2: #ead8ae;
+.fv { --fv-bg: var(--night); --fv-ink: var(--night-ink); --fv-ink-2: rgba(243, 236, 223, 0.84); --fv-gold: var(--gold); --fv-gold-2: var(--gold-2);
   background: var(--fv-bg); color: var(--fv-ink); }
 .fv-photo img { object-position: 50% 50%; }
 .fv-photo::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 12%; pointer-events: none;
