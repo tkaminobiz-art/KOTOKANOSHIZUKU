@@ -1,0 +1,76 @@
+/* ミルクの流れ（2026-11-11、ユーザー承認の E案）
+   節を箱で積まず、乳白のミルクの帯が節をまたいで流れ、写真が枠を越える。
+   配色は変えない：乳白の地・黒い文字・ピンク1色の強調。流れの赤は「溶けた筋」だけで、面では塗らない。
+   ミルクの帯＝使う場面・贈りもの・つくり方。紙の地＝古都華（左に細い流れ）・ご購入方法・製品情報・よくある質問。 */
+
+/* ---------- 共通 ---------- */
+.e-stream, .e-ribbon, .e-edge, .e-fvwave { pointer-events: none; }
+.e-stream svg, .e-ribbon svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+.sec.scene .sec-head, .sec.kotoka .sec-head, .sec.howto .sec-head { border-top: 0; padding-top: 0; }
+
+/* ---------- 最初の画面：写真の下縁がミルクに溶ける ---------- */
+.fv-photo { position: relative; display: block; }
+.e-fvwave { position: absolute; left: 0; right: 0; bottom: -2px; z-index: 6; line-height: 0; }
+.e-fvwave svg { display: block; width: 100%; height: auto; }
+.fv-fact { margin-top: 12px; font-size: var(--fs-lead); font-weight: 500; letter-spacing: 0.04em; }
+.fv-fact + .fv-lead { margin-top: 10px; }
+
+/* ---------- 使う場面：ミルクの帯 ---------- */
+.sec.scene { position: relative; padding-top: calc(var(--sec-m) * 0.9); padding-bottom: calc(var(--sec-m) * 0.6); }
+.sec.scene .e-stream { position: absolute; inset: -10% 0 -14% 0; z-index: 0; }
+.sec.scene .wrap { position: relative; z-index: 1; }
+.scene-lead { max-width: 34rem; }
+.scene-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: end; margin-top: var(--gap-h); }
+.scene-grid figure { position: relative; }
+.scene-grid img { width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; mix-blend-mode: multiply;
+  -webkit-mask-image: radial-gradient(ellipse 76% 84% at 50% 54%, #000 34%, transparent 100%); mask-image: radial-gradient(ellipse 76% 84% at 50% 54%, #000 34%, transparent 100%); }
+.scene-grid figcaption { margin-top: 0; text-align: center; }
+@media (min-width: 900px) {
+  .sec.scene h2 .br-sp { display: inline; }
+  .sec.scene .wrap { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); column-gap: 48px; align-items: center; }
+  .sec.scene .sec-head, .scene-lead, .scene-proof { grid-column: 1; }
+  .scene-grid { grid-column: 2; grid-row: 1 / span 4; margin-top: 0; transform: translateY(-6%); }
+  .scene-grid figure:first-child { transform: translateY(10%); }
+}
+
+/* ---------- 古都華：左に細い流れ、いちごが縁に浮く ---------- */
+.sec.kotoka { position: relative; padding-top: calc(var(--sec-m) * 0.5); }
+.sec.kotoka .e-ribbon { position: absolute; left: 0; top: -12%; width: 58%; height: 118%; z-index: 0;
+  -webkit-mask-image: linear-gradient(to right, #000 62%, transparent 100%); mask-image: linear-gradient(to right, #000 62%, transparent 100%); }
+.sec.kotoka .wrap { position: relative; z-index: 1; }
+.kotoka-photos { align-items: center; }
+.kotoka-photos img { mix-blend-mode: multiply;
+  -webkit-mask-image: radial-gradient(ellipse 76% 84% at 50% 54%, #000 34%, transparent 100%); mask-image: radial-gradient(ellipse 76% 84% at 50% 54%, #000 34%, transparent 100%); }
+.kotoka-photos img:last-of-type { transform: translateY(-14%); }
+@media (max-width: 899px) { .sec.kotoka .e-ribbon { width: 100%; height: 60%; top: -6%; } }
+
+/* ---------- 平城宮跡：紫の節の上下を波にして、流れの言葉を保つ ---------- */
+.sec.festival { position: relative; }
+.e-edge { position: absolute; left: 0; right: 0; z-index: 3; line-height: 0; }
+.e-edge.top { top: -1px; }
+.e-edge.bottom { bottom: -1px; transform: scaleY(-1); }
+.e-edge svg { display: block; width: 100%; height: auto; }
+.sec.festival .wrap { position: relative; z-index: 4; }
+
+/* ---------- 贈りもの：紙の地に戻し、黒金の箱を主役にする。写真の上端を見出しに揃える ---------- */
+.sec.gift { padding-top: calc(var(--sec-m) * 0.7); }
+.gift-furusato { border-top: 0; padding-top: 0; }
+@media (min-width: 900px) { .gift-grid { align-items: start; } .gift-photo { margin-top: 0.3em; } }
+
+/* ---------- つくり方：ミルクの帯の見せ場 ---------- */
+.sec.howto { position: relative; padding-top: calc(var(--sec-m) * 0.8); }
+.sec.howto .e-stream { position: absolute; inset: -6% 0 -8% 0; z-index: 0; }
+.sec.howto .wrap { position: relative; z-index: 1; }
+.howto-photos img { mix-blend-mode: multiply;
+  -webkit-mask-image: radial-gradient(ellipse 76% 84% at 50% 54%, #000 34%, transparent 100%); mask-image: radial-gradient(ellipse 76% 84% at 50% 54%, #000 34%, transparent 100%); }
+.howto-photos figcaption { text-align: center; }
+.more-title { border-top-color: var(--rule); }
+
+/* ---------- 製品情報：瓶が紙の上に浮く ---------- */
+.info-jar { mix-blend-mode: multiply;
+  -webkit-mask-image: radial-gradient(ellipse 76% 84% at 50% 54%, #000 34%, transparent 100%); mask-image: radial-gradient(ellipse 76% 84% at 50% 54%, #000 34%, transparent 100%); }
+
+/* ---------- スマホの組版：両端揃えをやめ、字間を伸ばさない ---------- */
+@media (max-width: 599px) {
+  .prose p, .scene-lead, .fv-lead, .fv-note, .faq .answer p, .points dd, .festival-basis { text-align: left; text-align-last: auto; }
+}
