@@ -4,8 +4,9 @@
    ミルクの帯＝使う場面・贈りもの・つくり方。紙の地＝古都華（左に細い流れ）・ご購入方法・製品情報・よくある質問。 */
 
 /* ---------- 共通 ---------- */
-.e-stream, .e-ribbon, .e-edge, .e-fvwave { pointer-events: none; }
-.e-stream svg, .e-ribbon svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+:root { --feather-x: linear-gradient(to right, transparent 0, #000 14%, #000 86%, transparent 100%); --feather-y: linear-gradient(to bottom, transparent 0, #000 12%, #000 88%, transparent 100%); }
+.e-stream, .e-edge, .e-fvwave { pointer-events: none; }
+.e-stream svg { position: absolute; inset: 0; width: 100%; height: 100%; }
 .sec.scene .sec-head, .sec.kotoka .sec-head, .sec.howto .sec-head { border-top: 0; padding-top: 0; }
 
 /* ---------- 最初の画面：写真の下縁がミルクに溶ける ---------- */
@@ -23,7 +24,7 @@
 .scene-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: end; margin-top: var(--gap-h); }
 .scene-grid figure { position: relative; }
 .scene-grid img { width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; mix-blend-mode: multiply;
-  -webkit-mask-image: radial-gradient(ellipse 76% 84% at 50% 54%, #000 34%, transparent 100%); mask-image: radial-gradient(ellipse 76% 84% at 50% 54%, #000 34%, transparent 100%); }
+  -webkit-mask-image: var(--feather-x), var(--feather-y); mask-image: var(--feather-x), var(--feather-y); -webkit-mask-composite: source-in; mask-composite: intersect; }
 .scene-grid figcaption { margin-top: 0; text-align: center; }
 @media (min-width: 900px) {
   .sec.scene h2 .br-sp { display: inline; }
@@ -35,15 +36,11 @@
 
 /* ---------- 古都華：左に細い流れ、いちごが縁に浮く ---------- */
 .sec.kotoka { position: relative; padding-top: calc(var(--sec-m) * 0.5); }
-.sec.kotoka .e-ribbon { position: absolute; left: 0; top: -12%; width: 58%; height: 118%; z-index: 0;
-  -webkit-mask-image: linear-gradient(to right, #000 62%, transparent 100%); mask-image: linear-gradient(to right, #000 62%, transparent 100%); }
 .sec.kotoka .wrap { position: relative; z-index: 1; }
 .kotoka-photos { align-items: center; }
 .kotoka-photos img { mix-blend-mode: multiply;
-  -webkit-mask-image: radial-gradient(ellipse 76% 84% at 50% 54%, #000 34%, transparent 100%); mask-image: radial-gradient(ellipse 76% 84% at 50% 54%, #000 34%, transparent 100%); }
+  -webkit-mask-image: var(--feather-x), var(--feather-y); mask-image: var(--feather-x), var(--feather-y); -webkit-mask-composite: source-in; mask-composite: intersect; }
 .kotoka-photos img:last-of-type { transform: translateY(-14%); }
-@media (max-width: 899px) { .sec.kotoka .e-ribbon { width: 100%; height: 60%; top: -6%; } }
-
 /* ---------- 平城宮跡：紫の節の上下を波にして、流れの言葉を保つ ---------- */
 .sec.festival { position: relative; }
 .e-edge { position: absolute; left: 0; right: 0; z-index: 3; line-height: 0; }
@@ -55,20 +52,25 @@
 /* ---------- 贈りもの：紙の地に戻し、黒金の箱を主役にする。写真の上端を見出しに揃える ---------- */
 .sec.gift { padding-top: calc(var(--sec-m) * 0.7); }
 .gift-furusato { border-top: 0; padding-top: 0; }
-@media (min-width: 900px) { .gift-grid { align-items: start; } .gift-photo { margin-top: 0.3em; } }
+@media (min-width: 900px) {
+  .gift-grid { align-items: start; }
+  .gift-photo { margin-top: 0.3em; position: sticky; top: calc(var(--head-h) + 24px); }
+  .gift-photo img { max-height: calc(100svh - var(--head-h) - 48px); }
+  .gift-box { max-width: none; }
+}
 
 /* ---------- つくり方：ミルクの帯の見せ場 ---------- */
 .sec.howto { position: relative; padding-top: calc(var(--sec-m) * 0.8); }
 .sec.howto .e-stream { position: absolute; inset: -6% 0 -8% 0; z-index: 0; }
 .sec.howto .wrap { position: relative; z-index: 1; }
 .howto-photos img { mix-blend-mode: multiply;
-  -webkit-mask-image: radial-gradient(ellipse 76% 84% at 50% 54%, #000 34%, transparent 100%); mask-image: radial-gradient(ellipse 76% 84% at 50% 54%, #000 34%, transparent 100%); }
+  -webkit-mask-image: var(--feather-x), var(--feather-y); mask-image: var(--feather-x), var(--feather-y); -webkit-mask-composite: source-in; mask-composite: intersect; }
 .howto-photos figcaption { text-align: center; }
 .more-title { border-top-color: var(--rule); }
 
 /* ---------- 製品情報：瓶が紙の上に浮く ---------- */
 .info-jar { mix-blend-mode: multiply;
-  -webkit-mask-image: radial-gradient(ellipse 76% 84% at 50% 54%, #000 34%, transparent 100%); mask-image: radial-gradient(ellipse 76% 84% at 50% 54%, #000 34%, transparent 100%); }
+  -webkit-mask-image: var(--feather-x), var(--feather-y); mask-image: var(--feather-x), var(--feather-y); -webkit-mask-composite: source-in; mask-composite: intersect; }
 
 /* ---------- スマホの組版：両端揃えをやめ、字間を伸ばさない ---------- */
 @media (max-width: 599px) {
