@@ -7,7 +7,7 @@
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
   var ctx = cv.getContext('2d');
   var W = 0, H = 0, dpr = 1, flakes = [], raf = 0, last = 0, onScreen = true;
-  var COLORS = ['#e3c98a', '#f0dca6', '#f0dca6', '#f7e7bd', '#fff4d6'];   // 夕空の上でも見えるよう、箔より明るい金
+  var COLORS = ['#e0b040', '#ecc254', '#ecc254', '#f6d67a', '#ffeaa8'];   // 濃い金。夕空の上でも見えるよう、明るい側へ寄せる
 
   function rnd(a, b) { return a + Math.random() * (b - a); }
 

@@ -12,11 +12,11 @@
   --rule: rgba(28, 27, 25, 0.22);
   --milk: #ecb7b5;
   --milk-deep: #e3a3a2;
-  /* 黒金（ヘッダーと最初の画面だけ）。金は瓶の箔に合わせた淡い色 */
+  /* 黒金（ヘッダーと最初の画面だけ）。金は、はっきりした濃い金（2026-11-11 ユーザー指示。前は淡いシャンパン色 #dcc48f） */
   --night: #15110c;
   --night-ink: #f3ecdf;
-  --gold: #dcc48f;
-  --gold-2: #ead8ae;
+  --gold: #d4a437;
+  --gold-2: #e8bf58;
 
   /* 書体（2026-11-04 高級感の依頼で見直し。すべて Google Fonts）
      本文＝Shippori Mincho、見出し・商品名＝同じ仲間でかなが大きい Shippori Mincho B1、大きな数字＝Cormorant Garamond。
@@ -102,7 +102,7 @@ ul, ol { list-style: none; }
   position: sticky; top: 0; z-index: 50;
   height: var(--head-h);
   background: var(--night); color: var(--night-ink);
-  border-bottom: 1px solid rgba(220, 196, 143, 0.4);
+  border-bottom: 1px solid rgba(212, 164, 55, 0.6);
   padding-top: env(safe-area-inset-top);
 }
 .site-header .bar {
@@ -126,7 +126,7 @@ ul, ol { list-style: none; }
 }
 .site-nav {
   position: absolute; left: 0; right: 0; top: 100%;
-  background: var(--night); border-bottom: 1px solid rgba(220, 196, 143, 0.4);
+  background: var(--night); border-bottom: 1px solid rgba(212, 164, 55, 0.6);
   padding: 4px var(--gutter) 16px;
 }
 .site-nav[hidden] { display: none; }
