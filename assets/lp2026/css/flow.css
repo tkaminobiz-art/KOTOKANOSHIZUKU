@@ -100,3 +100,9 @@
   .fv-text { padding-bottom: 8%; }
   .fv-text > * { max-width: min(34rem, 44vw); }   /* 1024px 幅で本文の行末に1字だけ残らない幅にする */
 }
+
+/* ---------- 最初の画面：金のかけらが降る（2026-11-11）。描画は js/flakes.js ---------- */
+.fv-flakes { position: absolute; left: 0; top: 0; width: 100%; aspect-ratio: 4 / 5; z-index: 1; pointer-events: none; }
+@media (min-width: 600px) { .fv-flakes { aspect-ratio: 16 / 9; } }
+@media (min-width: 1024px) { .fv-flakes { aspect-ratio: auto; height: 100%; } }
+@media (prefers-reduced-motion: reduce) { .fv-flakes { display: none; } }
