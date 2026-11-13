@@ -437,6 +437,8 @@ figcaption .cap-no { font-variant-numeric: tabular-nums; margin-right: 0.5em; co
 .recipe:has(.recipe-photo) .recipe-desc { grid-column: 2; grid-row: 2; align-self: start; }
 .recipe:has(.recipe-photo) .recipe-photo { grid-column: 1; grid-row: 1 / span 2; }
 .recipe:has(.recipe-photo) dl { grid-column: 1 / -1; grid-row: 3; }
+.recipe:has(.recipe-photo) .recipe-note { grid-column: 1 / -1; grid-row: 4; }
+.recipe-note { margin: 0; }
 .recipe dl { display: grid; gap: 8px; margin-top: 4px; }
 .recipe dl > div { display: grid; grid-template-columns: 5.5em minmax(0, 1fr); column-gap: 12px; }
 .recipe dt { font-size: var(--fs-cap); line-height: 1.9; font-weight: 500; letter-spacing: 0.1em; padding-top: 0.15em; }
